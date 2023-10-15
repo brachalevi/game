@@ -7,9 +7,9 @@
     grid-template-areas:
     'timer orders orders orders orders orders'
     'money orders orders orders orders orders'
-    'plating plating empty  tray tray tray'
-    'plating plating empty  tray tray tray'
-    'plating plating serve tray tray tray';
+    /* 'plating plating . ingredients ingredients ingredients' */
+    'plating plating . ingredients ingredients ingredients'
+    'plating plating serve ingredients ingredients ingredients';
 
 }
 
@@ -30,12 +30,6 @@
 
 }
 
-#tray{
-    grid-area: tray;
-    background-color: rgb(114, 169, 69);
-
-}
-
 #empty{
     grid-area: empty;
     background-color: rgb(171, 134, 211);
@@ -50,28 +44,49 @@
 
 #plating{
     grid-area: plating;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(112, 157, 216);
+    justify-content: flex-end;
+    align-items: center;
+}
 
+#plate{
+    height: 100px;
+    width:300px;
+    padding: 10px;
+    padding-top: 0px;
 }
 
 .tray{
-
+    flex-basis: 30%;
+    padding: 10px;
 }
 
-#tomato{
+.tray:hover{
+    cursor: pointer;
+}
 
+.tray-img{
+    width: 90%;
+    height: 170px;
+}
+
+
+#tomato{
+    height: 20px;
 }
 
 #onion{
-
+    height: 20px;
 }
 
 #patty{
-
+    height: 60px;
 }
 
 #lettuce{
-
+    height: 40px;
 }
 
 #top-bun{
@@ -83,6 +98,14 @@
 }
 
 .ingredient{
+    width:200px;
+}
+
+.bun{
+    height: 80px;
+}
+
+.hidden{
     display: none;
 }
 
@@ -101,7 +124,43 @@
 }
 
 #ingredients{
+    /* display: grid;
+    gap:0px;
+    grid-template-areas: 
+    'tomat lettuce onion'
+    'top-bun bottom-bun patty'; */
+    grid-area: ingredients;
+    background-color: rgb(114, 169, 69);
+}
+
+.row{
+    /* width: 400px;
+    height: 200px; */
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
     justify-content: space-around;
+}
+
+#bottom-bun-tray{
+    grid-area: bottom-bun;
+}
+
+#top-bun-tray{
+    grid-area: top-bun;
+}
+
+#patty-tray{
+    grid-area: patty;
+}
+
+#tomato-tray{
+    grid-area: tomat;
+}
+
+#lettuce-tray{
+    grid-area: lettuce;
+}
+
+#onion-tray{
+    grid-area: onion;
 }
