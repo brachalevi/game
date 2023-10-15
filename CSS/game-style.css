@@ -7,8 +7,8 @@
     grid-template-areas:
     'timer orders orders orders orders orders'
     'money orders orders orders orders orders'
-    'plating plating empty  tray tray tray'
-    'plating plating empty  tray tray tray'
+    'plating plating .  tray tray tray'
+    'plating plating .  tray tray tray'
     'plating plating serve tray tray tray';
 
 }
@@ -37,8 +37,6 @@
 }
 
 #empty{
-    grid-area: empty;
-    background-color: rgb(171, 134, 211);
 
 }
 
