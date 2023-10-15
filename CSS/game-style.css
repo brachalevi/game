@@ -50,6 +50,7 @@
     width:300px;
     padding: 10px;
     padding-top: 0px;
+    order:6;
 }
 
 .tray{
@@ -57,15 +58,14 @@
     padding: 10px;
 }
 
-.tray:hover{
-    cursor: pointer;
-}
-
 .tray-img{
     width: 90%;
     height: 170px;
 }
 
+.unpressed:hover{
+    cursor: pointer;
+}
 
 #tomato{
     height: 20px;
@@ -133,8 +133,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    grid-area: ingredients;
-    background-color: rgb(114, 169, 69);
 }
 
 #bottom-bun-tray{
