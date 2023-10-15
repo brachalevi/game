@@ -7,9 +7,9 @@
     grid-template-areas:
     'timer orders orders orders orders orders'
     'money orders orders orders orders orders'
-    'plating plating .  tray tray tray'
-    'plating plating .  tray tray tray'
-    'plating plating serve tray tray tray';
+    'plating plating .  ingredients ingredients ingredients'
+    'plating plating .  ingredients ingredients ingredients'
+    'plating plating serve ingredients ingredients ingredients';
 
 }
 
@@ -27,16 +27,6 @@
 #money{
     grid-area: money;
     background-color: rgb(237, 239, 145);
-
-}
-
-#tray{
-    grid-area: tray;
-    background-color: rgb(114, 169, 69);
-
-}
-
-#empty{
 
 }
 
@@ -95,11 +85,13 @@
 #orders{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
 #ingredients{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    grid-area: ingredients;
+    background-color: rgb(114, 169, 69);
 }
