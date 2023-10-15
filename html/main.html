@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="../CSS/game-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
     <div id="orders">
-        <div id="order1"></div>
-        <div id="order2"></div>
-        <div id="order3"></div>
+        <div class="order"><p id="order1-text"></p></div>
+        <div class="order"><p id="order2-text"></p></div>
+        <div class="order"><p id="order3-text"></p></div>
     </div>
     <div id="timer"></div>
     <div id="money"></div>
-    <div id="tray">
+    <div id="ingredients">
+        <div class="tray" id="lettuce-tray"></div>
+        <div class="tray" id="tomato-tray"></div>
+        <div class="tray" id="onion-tray"></div>
+        <div class="tray" id="top-bun-tray"></div>
+        <div class="tray" id="bottom-bun-tray"></div>
+        <div class="tray" id="patty-tray"></div>
+    </div>
+    
         
     </div>
     <div id="empty"></div>
     <div id="serve"></div>
-    <div id="palting"></div>
+    <div id="plating">
+        <img id="top-bun" class="ingredient" src="../media/top-bun-side.png">
+        <img id="lettuce" class="ingredient" src="../media/lettuce-side.png">
+        <img id="tomato" class="ingredient" src="../media/tomato-side.png">
+        <img id="onion" class="ingredient" src="../media/onion-side.png">
+        <img id="patty" class="ingredient" src="../media/patty-side.png">
+        <img id="bottom-bun" class="ingredient" src="../media/bottom-bun-side.png">
+    </div>
 
-</head>
-<body>
-    
+    <!-- script -->
+    <script src="../JS/gameplay.js"></script>
 </body>
 </html>
