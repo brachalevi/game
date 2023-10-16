@@ -1,7 +1,6 @@
-//game start
-//3 random orders and full stock
 
-// orders
+
+// orders also in consts
 const order_bank = [
     {
         burger: ['bottom-bun','tomato','onion','patty','lettuce','top-bun'],
@@ -29,27 +28,7 @@ const order_bank = [
     } //add more
 ];
 
-const order_call = [];
 
-//current orders
-
-/*still not finish*/
-function fillOrder(){
-    if(true){}
-
-}
-/*still not finish*/
-function checkOrder(order){
-    for (let i = 0; i < order_call.length; i++) {
-        if(order==order_call[i]){
-            /*add money*/
-            orders.splice(i, 1);
-            fillOrder();
-            return 0;
-        }
-    }
-
-}
 
 
 var ingredientsOrder=5;
@@ -113,7 +92,7 @@ bottomBunTray.addEventListener('click', function(event){
     addIngredient(event.target);
 });
 
-//ingredients
+//ingredients also in consts
 const stock = [
     {
         ingredient: 'tomato',
