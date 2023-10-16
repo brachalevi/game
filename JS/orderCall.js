@@ -1,74 +1,81 @@
 const timerDisplay = document.getElementById('timer');
-const order_call = [document.getElementById("order1-text"),
-document.getElementById("order2-text"),document.getElementById("order3-text")];
-let timeLeft = 90;
+const currentOrders = [
+  document.getElementById("order1-text"),
+  document.getElementById("order2-text"),
+  document.getElementById("order3-text")
+]; //the paragraph element to put the order detailes into
+
+let timeLeft = 90; //timer starts at 90 seconds
+//need to add an option of choosing the game length
 let timer;
 
-/*this function will start the timer and call to fill 3 orders-still not finish*/
+/*this function will start the timer and call to fill 3 orders*/
 function startGame(){
-    console.log("start");
-    timer = setInterval(function () {
-        console.log(timeLeft);
+  //will happen every 1 second
+  timer = setInterval(function () {
+      timeLeft--;
+      timerDisplay.textContent = timeLeft + ' seconds';
+  
+      if (timeLeft === 0) {
+        stopTimer();
+        // Call a function to end the game
+      }
+    }, 1000); 
 
-        timeLeft--;
-        timerDisplay.textContent = timeLeft + ' seconds';
-    
-        if (timeLeft === 0) {
-          stopTimer();
-          // Call a function to end the game
-        }
-        }, 1000);
-        setTimeout(function () {
-            fillOrder(order_call[0]);
-        }, 1000);
-    
-        setTimeout(function () {
-          fillOrder(order_call[1]);
-        }, 5000);
-    
-        setTimeout(function () {
-          fillOrder(order_call[2]);
-        }, 8000);
+    //filling the first 3 orders one by one
+    setTimeout(function () {
+      document.getElementById('order1-div').classList.remove('not-visable'); //showing the order div
+      fillOrder(currentOrders[0]); //showing the order text
+    }, 1000); //after 1 second
+
+    setTimeout(function () {
+      document.getElementById('order2-div').classList.remove('not-visable');
+      fillOrder(currentOrders[1]);
+    }, 5000); //after 5 seconds
+
+    setTimeout(function () {
+      document.getElementById('order3-div').classList.remove('not-visable');
+      fillOrder(currentOrders[2]);
+    }, 8000); //after 8 seconds
 }
 
-/*it will stop runing the timer and elso nedd to print "end game" result 
-or what ever we whent thet happen in the end-still not finish*/
+/*will stop running the timer and also need to print "game over" result 
+or what ever we want thet happen in the end-still not finish*/
 function stopTimer() {
     clearInterval(timer);
+    location.href='../html/gameOver.html';
+    //show game-over message based on money (100+ - you can do better and such as)
 }
 
 /*put a new random order in orderAvailable after a given delay-still not finish*/
 function fillOrder(orderAvailable){
-    console.log("fill order")
-    orderAvailable.textContent = raundomOrder().burger;
+  const rndBurger=randomOrder();
+  const strForOrder=stringOrder(rndBurger);
+  orderAvailable.textContent += strForOrder; //the text in the available order
 }
 
-function raundomOrder(){
+function randomOrder(){
     return order_bank[Math.floor(order_bank.length*Math.random())];
 }
 
 function stringOrder(order){
-    let strOrder ="";
-    for (let i = 0; i < order.length; i++) {
-        strOrder += order[i]
-        if(i < order.length-1){
-            strOrder += "\n + ";
+    let strOrder =""; //empty string
+    const burgerInfo=order.burger;
+    const burgerPrice=order.price;
+    for (let i = burgerInfo.length-1; i>=0; i--) { //starting from the end to the start
+      let current=''; //the current ingredient
+      for (let j=0; j<burgerInfo[i].length; j++){ //going through each char
+        if (burgerInfo[i][j]==='-'){ 
+          current+=' '; //replacing '-' with a space
         }
+        else{
+          current+=burgerInfo[i][j];
+        }
+      }
+        strOrder += `-${current}`+'\r\n';
     }
+    strOrder+=`Price: $${burgerPrice}`; //the price of the burger
     return strOrder;
 }
 
-/*shold check if the hmburgwer good-if so call to fillOrder-still not finish*/
-function checkOrder(order){
-    for (let i = 0; i < order_call.length; i++) {
-        if(order==order_call[i]){
-            /*add money*/
-            orders.splice(i, 1);
-            fillOrder();
-            return 0;
-        }
-    }
-    //let raundomOrder = 
-
-}
 startGame();

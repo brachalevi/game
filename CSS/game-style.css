@@ -7,14 +7,22 @@
     grid-template-areas:
     'timer orders orders orders orders orders'
     'money orders orders orders orders orders'
-    'plating plating . ingredients ingredients ingredients'
+    'plating plating feedback ingredients ingredients ingredients'
+    'plating plating feedback ingredients ingredients ingredients'
     'plating plating serve ingredients ingredients ingredients';
+}
 
+body{
+    font-family: 'Gabarito', sans-serif;
 }
 
 #orders{
     grid-area: orders;
     background-color: palevioletred;
+}
+
+#feedback{
+    grid-area: feedback;
 }
 
 #timer{
@@ -66,7 +74,15 @@
     cursor: pointer;
 }
 
+.plating-buttons{
+    color: #4b76de;
+    background-color: #abc3ff;
+    font-weight: bold;
+}
 
+.plating-buttons:active{
+    transform:translateY(2px);
+}
 
 #tomato{
     height: 20px;
@@ -112,11 +128,6 @@
 }
 
 #ingredients{
-    /* display: grid;
-    gap:0px;
-    grid-template-areas: 
-    'tomat lettuce onion'
-    'top-bun bottom-bun patty'; */
     grid-area: ingredients;
     background-color: rgb(114, 169, 69);
 }
@@ -126,8 +137,6 @@
 }
 
 .row{
-    /* width: 400px;
-    height: 200px; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -179,4 +188,13 @@
 
 #onion-tray{
     grid-area: onion;
+}
+
+.order-text{
+    margin: 5px;
+}
+
+.new-order-heading{
+    font-weight: bold;
+    text-align: center;
 }

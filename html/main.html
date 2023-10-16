@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking game</title>
+    <link rel="icon" type="image/x-icon" href="../media/prefabs/patty.png">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href="../CSS/game-style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="container">
         <div id="orders">
-            <div class="order"><p id="order1-text"></p></div>
-            <div class="order"><p id="order2-text"></p></div>
-            <div class="order"><p id="order3-text"></p></div>
+            <div class="order not-visable" id="order1-div"><p class="order-text"><span class="new-order-heading">NEW ORDER<br></span><span id="order1-text"></span></p></div>
+            <div class="order not-visable" id="order2-div"><p class="order-text"><span class="new-order-heading">NEW ORDER<br></span><span id="order2-text"></span></p></div>
+            <div class="order not-visable" id="order3-div"><p class="order-text"><span class="new-order-heading">NEW ORDER<br></span><span id="order3-text"></span></p></div>
         </div>
-        <div><p id="timer">timer</p></div>
-        <div id="money"></div>
+        <div><p id="timer">90 seconds</p></div>
+        <div><p id="money">$0</p></div>
         <div id="ingredients">
             <div class="row">
                 <div class="tray">
@@ -39,6 +43,7 @@
         </div>
         
         <div id="feedback">
+            <p id="feedback-text"></p>
             <!-- if he got the order wrong or right -->
         </div>
         <div id="serve">
@@ -59,6 +64,8 @@
     <!-- script -->
     <script src="../JS/gameplay.js"></script>
     <script src="../JS/consts.js"></script>
+    <script src="../JS/money.js"></script>
+    <script src="../JS/gameOverScore.js"></script>
     <script src="../JS/orderCall.js"></script>
 </body>
 </html>
