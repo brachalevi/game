@@ -1,7 +1,6 @@
 //game start
 
 //3 random orders and full stock
-
 var ingredientsOrder=5, platingArray=[]; //reseting variables
 
 // picking an ingredient

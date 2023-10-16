@@ -1,3 +1,5 @@
+/* Include order_bank from files */
+
 const timerDisplay = document.getElementById('timer');
 const order_call = [document.getElementById("order1-text"),
 document.getElementById("order2-text"),document.getElementById("order3-text")];
@@ -6,9 +8,12 @@ let timer;
 
 /*this function will start the timer and call to fill 3 orders-still not finish*/
 function startGame(){
-    timer = (function () {
+    console.log("start");
+    timer = setInterval(function () {
+        console.log(timeLeft);
+
         timeLeft--;
-        timeDisplay.textContent = timeLeft + ' seconds';
+        timerDisplay.textContent = timeLeft + ' seconds';
     
         if (timeLeft === 0) {
           stopTimer();
@@ -16,17 +21,16 @@ function startGame(){
         }
         }, 1000);
         setTimeout(function () {
-         (order_bank[0]);
-        }, 0);
+            fillOrder(order_call[0]);
+        }, 1000);
     
         setTimeout(function () {
-          fillOrder(order_bank[1]);
+          fillOrder(order_call[1]);
         }, 5000);
     
         setTimeout(function () {
-          fillOrder(order_bank[2]);
+          fillOrder(order_call[2]);
         }, 8000);
-
 }
 
 /*it will stop runing the timer and elso nedd to print "end game" result 
@@ -35,10 +39,25 @@ function stopTimer() {
     clearInterval(timer);
 }
 
-/*put a new random order in orderAvailable after a given dilay-still not finish*/
+/*put a new random order in orderAvailable after a given delay-still not finish*/
 function fillOrder(orderAvailable){
-    orderAvailable=0;
+    console.log("fill order")
+    orderAvailable.textContent = raundomOrder().burger;
+}
 
+function raundomOrder(){
+    return order_bank[Math.floor(order_bank.length*Math.random())];
+}
+
+function stringOrder(order){
+    let strOrder ="";
+    for (let i = 0; i < order.length; i++) {
+        strOrder += order[i]
+        if(i !== order.length-1){
+            strOrder += "\n + ";
+        }
+    }
+    return strOrder;
 }
 
 /*shold check if the hmburgwer good-if so call to fillOrder-still not finish*/
@@ -51,8 +70,10 @@ function checkOrder(order){
             return 0;
         }
     }
+    //let raundomOrder = 
 
 }
 
 //to make an array of current orders
 currentOrders=[];
+startGame();
