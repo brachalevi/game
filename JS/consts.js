@@ -33,7 +33,8 @@ const stock = [
     {
         ingredient: 'tomato',
         amount:7,
-        price:10
+        price:10,
+        maxAmount:7
     },
     {
         ingredient: 'lettuce',
@@ -43,21 +44,25 @@ const stock = [
     {
         ingredient: 'onion',
         amount:10,
-        price:15
+        price:15,
+        maxAmount:10
     },
     {
         ingredient: 'patty',
         amount:10,
-        price:40
+        price:40,
+        maxAmount:10
     },
     {
         ingredient: 'top-bun',
         amount:9,
-        price:25
+        price:25,
+        maxAmount:9
     },
     {        
         ingredient: 'bottom-bun',
         amount:9,
-        price:25
+        price:25,
+        maxAmount:9
     }
 ];

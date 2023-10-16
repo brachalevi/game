@@ -46,6 +46,37 @@ const checkPlating=()=>{
     return false;
 }
 
+/*buy Ingredient- full the stok of Ingredient thet was clisk and remove the black style*/
+const fillIngredient=(target)=>{
+    console.log("fill");
+    const targetId=target.id.toString(); //getting the tray id
+    const ingredientId=targetId.substring(0, targetId.length-5); //the id without '-tray'
+    for (let i = 0; i < stock.length; i++) {
+        if(stock[i].ingredient === ingredientId){
+            if(stock[i].price <= moneyEarned){
+                reduceMoney(tock[i].price);
+                stock[i].amount = stock[i].maxAmount;
+                target.addEventListener('click', function clicked(event){
+                    addIngredient(event.target);
+                }, { once: true });
+                document.getElementById(ingredientId).classList.remove("black");
+            }
+            else{
+                document.getElementById("fitbek-test").textContent = "you dont have anaf mony";
+            }
+            break;
+        }
+    }
+}
+/*change the event to buy and put a fill masseg*/
+function buyIngredient(ingredient){
+    let ingredientId = ingredient + "-tray";
+    document.getElementById(ingredientId).classList.add("black");
+    document.getElementById(ingredientId).addEventListener('click', function click(event){
+        fillIngredient(event.target)
+    }, { once: true });
+}
+
 const addIngredient=(target)=>{
     const targetId=target.id.toString(); //getting the tray id
     const ingredientId=targetId.substring(0, targetId.length-5); //the id without '-tray'
@@ -55,13 +86,18 @@ const addIngredient=(target)=>{
         if (stock[i].ingredient===ingredientId){ //finding the ingredient in stock
             if (stock[i].amount!==0){
                 stock[i].amount--; //reducing one from the ingredient's amount
+                if (stock[i].amount===0){
+                    buyIngredient(stock[i].ingredient);
+                }
                 break;
             }
             else{
                 //amount===0
                 //show an option to buy more and disable clicking
+
             }
         }
+
     }
     currentIngredient.classList.remove('hidden'); //the ingredient is visable
     currentIngredient.style.order=ingredientsOrder;  //the rder of the ingredient in the flex box
@@ -123,6 +159,10 @@ const resetPlating=()=>{
     //adding click events to the unvisable buttons
     serveBt.addEventListener('click', serveClicked);
     restartBt.addEventListener('click', restartClicked);
+}
+
+function resetEvent(){
+
 }
 
 resetPlating(); //calling the function initally

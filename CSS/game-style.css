@@ -70,6 +70,10 @@ body{
     height: 170px;
 }
 
+.black{
+    filter: saturate(10%);
+}
+
 .unpressed:hover{
     cursor: pointer;
 }
