@@ -121,6 +121,10 @@
     background-color: rgb(114, 169, 69);
 }
 
+.not-visable{
+    visibility: hidden;
+}
+
 .row{
     /* width: 400px;
     height: 200px; */

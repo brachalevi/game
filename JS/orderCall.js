@@ -1,6 +1,3 @@
-/* Include order_bank from files */
-import { order_bank } from './consts.js';
-
 const timerDisplay = document.getElementById('timer');
 const order_call = [document.getElementById("order1-text"),
 document.getElementById("order2-text"),document.getElementById("order3-text")];
@@ -40,7 +37,7 @@ function stopTimer() {
 
 /*put a new random order in orderAvailable after a given dilay-still not finish*/
 function fillOrder(orderAvailable){
-    orderAvailable=
+    orderAvailable=0;
 
 }
 
@@ -56,3 +53,6 @@ function checkOrder(order){
     }
 
 }
+
+//to make an array of current orders
+currentOrders=[];

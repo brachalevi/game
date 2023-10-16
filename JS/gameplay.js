@@ -13,7 +13,39 @@ const pattyTray=document.getElementById("patty-tray");
 const topBunTray=document.getElementById("top-bun-tray");
 const bottomBunTray=document.getElementById("bottom-bun-tray");
 
-//call resetPlating after every serve/cancel click
+const serveBt=document.getElementById("serve-bt");
+const restartBt=document.getElementById("restart-bt");
+
+const serveClicked=()=>{ 
+    const isRight=checkPlating();
+    //do things
+    resetPlating();
+}
+
+const restartClicked=()=>{
+    //do things
+    resetPlating();
+}
+
+const checkPlating=()=>{
+    for (let j=0; j<currentOrders.length; j++){ //checking for each one of the current orders
+        if (currentOrders[j].length===platingArray.length){ //if the length of the plating array and the array of the current order are a match
+            var countCorrectIngredients=0;
+            for (let i=0; i<platingArray.length; i++){
+                if (platingArray[i]===currentOrders[j][i]){ // if in the same place there is the same ingredient
+                    countCorrectIngredients++;
+                }
+                else{
+                    break;
+                }
+            }
+            if (countCorrectIngredients===platingArray.length){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 const addIngredient=(target)=>{
     const targetId=target.id.toString(); //getting the tray id
@@ -36,6 +68,9 @@ const addIngredient=(target)=>{
     currentIngredient.style.order=ingredientsOrder;  //the rder of the ingredient in the flex box
     ingredientsOrder--; //the next ingredient's order
     noPointer(target); //no pointer when hovering over the tray
+    //showing the buttons
+    serveBt.classList.remove('not-visable');
+    restartBt.classList.remove('not-visable');
 }
 
 const noPointer=(target)=>{
@@ -81,93 +116,19 @@ const resetPlating=()=>{
     bottomBunTray.addEventListener('click', function clicked(event){
         addIngredient(event.target);
     }, { once: true });
+
+    //hidding the buttons
+    serveBt.classList.add('not-visable');
+    restartBt.classList.add('not-visable');
+
+    //adding click events to the unvisable buttons
+    serveBt.addEventListener('click', serveClicked);
+    restartBt.addEventListener('click', restartClicked);
 }
 
 resetPlating(); //calling the function initally
 
-// orders also in consts
-const order_bank = [
-    {
-        burger: ['bottom-bun','tomato','onion','patty','lettuce','top-bun'],
-        price:65
-    },
-    {
-        burger: ['bottom-bun','patty','top-bun'],
-        price:20
-    },
-    {
-        burger: ['bottom-bun','patty','tomato','top-bun'],
-        price:35
-    },
-    {
-        burger:['bottom-bun','patty','tomato','onion','top-bun'],
-        price:40
-    },
-    {
-        burger:['bottom-bun','patty','tomato','lettuce','top-bun'],
-        price:40
-    },
-    {        
-        burger:['bottom-bun','tomato','patty','onion','lettuce','top-bun'],
-        price:20
-    } //add more
-];
 
-const order_call = [];
-
-//current orders
-
-/*still not finish*/
-function fillOrder(){
-    if(true){}
-
-}
-/*still not finish*/
-function checkOrder(order){
-    for (let i = 0; i < order_call.length; i++) {
-        if(order==order_call[i]){
-            /*add money*/
-            orders.splice(i, 1);
-            fillOrder();
-            return 0;
-        }
-    }
-
-}
-
-//ingredients also in consts
-const stock = [
-    {
-        ingredient: 'tomato',
-        amount:7,
-        price:10
-    },
-    {
-        ingredient: 'lettuce',
-        amount:6,
-        price:20
-    },
-    {
-        ingredient: 'onion',
-        amount:10,
-        price:15
-    },
-    {
-        ingredient: 'patty',
-        amount:10,
-        price:40
-    },
-    {
-        ingredient: 'top-bun',
-        amount:9,
-        price:25
-    },
-    {        
-        ingredient: 'bottom-bun',
-        amount:9,
-        price:25
-    }
-];
 
 //game over
 //if timer is over or no money and no ingredients 
