@@ -85,7 +85,7 @@ const resetPlating=()=>{
 
 resetPlating(); //calling the function initally
 
-// orders
+// orders also in consts
 const order_bank = [
     {
         burger: ['bottom-bun','tomato','onion','patty','lettuce','top-bun'],
@@ -135,7 +135,7 @@ function checkOrder(order){
 
 }
 
-//ingredients
+//ingredients also in consts
 const stock = [
     {
         ingredient: 'tomato',
