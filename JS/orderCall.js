@@ -1,4 +1,3 @@
-
 const timerDisplay = document.getElementById('timer');
 const order_call = [document.getElementById("order1-text"),
 document.getElementById("order2-text"),document.getElementById("order3-text")];
@@ -52,7 +51,7 @@ function stringOrder(order){
     let strOrder ="";
     for (let i = 0; i < order.length; i++) {
         strOrder += order[i]
-        if(i !== order.length-1){
+        if(i < order.length-1){
             strOrder += "\n + ";
         }
     }
