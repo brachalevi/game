@@ -16,3 +16,4 @@ const sendFeedback=(message)=>{
     feedbackBox.classList.remove('not-visable'); //making it visable
     hideFeedback(); //hiding it
 }
+

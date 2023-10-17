@@ -19,22 +19,58 @@ const bottomBunAmount=document.getElementById("bottom-bun-amount-label");
 const servebtn=document.getElementById("serve-btn");
 const restartbtn=document.getElementById("restart-btn");
 
+
+const noPointer=(target)=>{
+    target.classList.remove('unpressed'); //no pointer when hovering above the target
+}
+
+const pointer=(target)=>{
+    target.classList.add('unpressed'); //no pointer when hovering above the target
+}
+
+const resetPlatingVariables=()=>{
+    ingredientsOrder = 5; //resets the order of ingredients
+    platingArray = []; //resets the ingredients array
+}
+
 const hidingBtns=()=>{
     servebtn.classList.add('not-visable');
     restartbtn.classList.add('not-visable');
 }
 
+const checkPlating=()=>{
+    for (let j=0; j<currentOrders.length; j++){ //checking for each one of the current orders
+        const burger=currentOrders[j].burger;
+        let countCorrectIngredients=0;
+
+        //sometimes it says its correct only if ypu did it twice
+
+        if (burger.length===platingArray.length){ //if the length of the plating array and the array of the current order are a match
+            for (let i=0; i<platingArray.length; i++){
+                if (platingArray[i]===burger[i]){ // if in the same place there is the same ingredient
+                    countCorrectIngredients++;
+                }
+            }
+            if (countCorrectIngredients===platingArray.length){
+                return j;
+            }
+        }
+    }
+    return -1;
+}
+
 const serveClicked=()=>{ 
     const avaliablePlace=checkPlating();
-    console.log(avaliablePlace);
+    // const placeId="order"+(avaliablePlace+1)+"-text";
+    // const placeElement=document.getElementById(placeId);
+    const placeElement=placesForOrders[avaliablePlace];
     if (avaliablePlace!==-1){
         sendFeedback(`+$${currentOrders[avaliablePlace].price}`);
         addMoney(currentOrders[avaliablePlace].price);
-        fillOrder(avaliablePlace);
+        fillOrder(placeElement);
     }
-    else{
+    else {
         sendFeedback('Wrong order');
-        fillOrder(avaliablePlace);
     }
     hidingBtns();
     resetPlating();
@@ -45,27 +81,6 @@ const restartClicked=()=>{
     resetPlating();
 }
 
-const checkPlating=()=>{
-    for (let j=0; j<currentOrders.length; j++){ //checking for each one of the current orders
-        if (currentOrders[j].length===platingArray.length){ //if the length of the plating array and the array of the current order are a match
-            console.log(currentOrders[j]);
-            console.log(platingArray);
-            let countCorrectIngredients=0;
-            for (let i=0; i<platingArray.length; i++){
-                if (platingArray[i]===currentOrders[j][i]){ // if in the same place there is the same ingredient
-                    countCorrectIngredients++;
-                } //! Why you need this?
-                else{
-                    break;
-                }
-            }
-            if (countCorrectIngredients===platingArray.length){
-                return j;
-            }
-        }
-    }
-    return -1;
-}
 
 /*adding the ingredient to the plate in the correct order
 reducing onr from the amount of the ingredient*/
@@ -78,7 +93,6 @@ const addIngredient=(target)=>{
     const currentAmount=document.getElementById(amountId);
     for (let i=0; i<stock.length; i++){
         if (stock[i].ingredient===ingredientId){ //finding the ingredient in stock
-            //! In general it better to do first the option that cut the function, in this case if amount === 0
             if (stock[i].amount>0){
                 stock[i].amount--; //reducing one from the ingredient's amount
                 currentAmount.textContent=stock[i].amount;
@@ -89,6 +103,7 @@ const addIngredient=(target)=>{
             }
         }
     }
+    
     currentIngredient.classList.remove('hidden'); //the ingredient is visable
     currentIngredient.style.order=ingredientsOrder;  //the rder of the ingredient in the flex box
     ingredientsOrder--; //the next ingredient's order
@@ -96,14 +111,6 @@ const addIngredient=(target)=>{
     //showing the buttons
     servebtn.classList.remove('not-visable');
     restartbtn.classList.remove('not-visable');
-}
-
-const noPointer=(target)=>{
-    target.classList.remove('unpressed'); //no pointer when hovering above the target
-}
-
-const pointer=(target)=>{
-    target.classList.add('unpressed'); //no pointer when hovering above the target
 }
 
 // /buy Ingredient- full the stok of Ingredient thet was clisk and remove the black style/
@@ -123,7 +130,7 @@ const fillIngredient=(target)=>{
                 }, { once: true });
                 currentAmount.textContent=stock[i].amount;
                 document.getElementById(targetId).classList.remove("black");
-                sendFeedback("Your purchese has been completed");
+                sendFeedback(`-$${stock[i].price}`);
                 // /remove or try not/
                 // /nedd to add func thet chak and add the addIngr/
             }
@@ -139,8 +146,7 @@ const fillIngredient=(target)=>{
 // /change the event to buy and put a fill masseg/
 function buyIngredient(ingredient, place){
     let trayId = ingredient + "-tray";
-    console.log(place);
-    // place.textContent='Buy';
+    place.textContent='Buy';
     const tray=document.getElementById(trayId);
     tray.classList.add("black");
     tray.addEventListener('click', function click(event){
