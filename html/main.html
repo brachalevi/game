@@ -7,13 +7,29 @@
     <link rel="icon" type="image/x-icon" href="../media/prefabs/patty.png">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href="../CSS/game-style.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="container">
         <div id="orders">
-            <div class="order not-visable" id="order1-div"><p class="order-text"><span class="new-order-heading">NEW ORDER<br></span><span id="order1-text"></span></p></div>
-            <div class="order not-visable" id="order2-div"><p class="order-text"><span class="new-order-heading">NEW ORDER<br></span><span id="order2-text"></span></p></div>
-            <div class="order not-visable" id="order3-div"><p class="order-text"><span class="new-order-heading">NEW ORDER<br></span><span id="order3-text"></span></p></div>
+            <div class="order not-visable" id="order1-div">
+                <p class="order-text">
+                    <span class="new-order-heading">NEW ORDER</span>
+                    <span id="order1-text" class="order-details"></span>
+                </p>
+            </div>
+            <div class="order not-visable" id="order2-div">
+                <p class="order-text">
+                    <span class="new-order-heading">NEW ORDER</span>
+                    <span id="order2-text" class="order-details"></span>
+                </p>
+            </div>
+            <div class="order not-visable" id="order3-div">
+                <p class="order-text">
+                    <span class="new-order-heading">NEW ORDER</span>
+                    <span id="order3-text" class="order-details"></span>
+                </p>
+            </div>
         </div>
         <div><p id="timer">90 seconds</p></div>
         <div><p id="money">$0</p></div>
@@ -43,12 +59,12 @@
         </div>
         
         <div id="feedback">
-            <p id="feedback-text"></p>
+            <p id="feedback-text">Here you will get feedback about the game</p>
             <!-- if he got the order wrong or right -->
         </div>
         <div id="serve">
-            <button id="serve-bt" class="plating-buttons">Serve</button>
-            <button id="restart-bt" class="plating-buttons">Restart</button>
+            <button id="serve-btn" class="plating-buttons buttons">Serve</button>
+            <button id="restart-btn" class="plating-buttons buttons">Restart</button>
         </div>
         <div id="plating">
             <img id="top-bun" class="ingredient hidden" src="../media/top-bun-side.png">
@@ -61,11 +77,12 @@
         </div>
     </div>
 
-    <!-- script -->
+    <!-- scripts -->
     <script src="../JS/gameplay.js"></script>
     <script src="../JS/consts.js"></script>
     <script src="../JS/money.js"></script>
     <script src="../JS/gameOverScore.js"></script>
     <script src="../JS/orderCall.js"></script>
+    <script src="../JS/plating.js"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ function startGame(){
   
       if (timeLeft === 0) {
         stopTimer();
-        // Call a function to end the game
+        location.href='../html/gameOver.html';
       }
     }, 1000); 
 
@@ -39,43 +39,55 @@ function startGame(){
     }, 8000); //after 8 seconds
 }
 
-/*will stop running the timer and also need to print "game over" result 
-or what ever we want thet happen in the end-still not finish*/
+//stop the timer
 function stopTimer() {
     clearInterval(timer);
-    location.href='../html/gameOver.html';
-    //show game-over message based on money (100+ - you can do better and such as)
 }
 
-/*put a new random order in orderAvailable after a given delay-still not finish*/
-function fillOrder(orderAvailable){
-  const rndBurger=randomOrder();
-  const strForOrder=stringOrder(rndBurger);
-  orderAvailable.textContent += strForOrder; //the text in the available order
+/*put a new random order in placeAvaliable after a given delay-still not finish*/
+function fillOrder(placeAvaliable){
+  const rndBurger=order_bank[Math.floor(order_bank.length*Math.random())];
+  // const strForOrder=stringOrder(rndBurger);
+  listOfItems(rndBurger, placeAvaliable);
+  // placeAvaliable.textContent = strForOrder; //the text in the available order
 }
 
-function randomOrder(){
-    return order_bank[Math.floor(order_bank.length*Math.random())];
-}
+const listOfItems=(order, place)=>{
+  const burgerInfo=order.burger;
+  const burgerPrice=order.price;
 
-function stringOrder(order){
-    let strOrder =""; //empty string
-    const burgerInfo=order.burger;
-    const burgerPrice=order.price;
-    for (let i = burgerInfo.length-1; i>=0; i--) { //starting from the end to the start
-      let current=''; //the current ingredient
-      for (let j=0; j<burgerInfo[i].length; j++){ //going through each char
-        if (burgerInfo[i][j]==='-'){ 
-          current+=' '; //replacing '-' with a space
-        }
-        else{
-          current+=burgerInfo[i][j];
-        }
+  let list=document.createElement('ul');
+  list.style.listStyleType='none';
+
+  for (let i = burgerInfo.length-1; i>=0; i--) { //starting from the end to the start
+    let current=''; //the current ingredient
+    for (let j=0; j<burgerInfo[i].length; j++){ //going through each char
+      if (burgerInfo[i][j]==='-'){ 
+        current+=' '; //replacing '-' with a space
       }
-        strOrder += `-${current}`+'\r\n';
+      else{
+        current+=burgerInfo[i][j]; //adding the char
+      }
     }
-    strOrder+=`Price: $${burgerPrice}`; //the price of the burger
-    return strOrder;
+    const item=document.createElement('li'); //creating new list-item
+    item.textContent = `- ${current}`; //with the value of current ingredient
+    list.appendChild(item); //adding to the list
+  }
+
+  //empty line in-between
+  const empty = document.createElement('li');
+  empty.textContent='empty line';
+  empty.style.visibility='hidden';
+  empty.style.fontSize='8px';
+  list.appendChild(empty);
+
+  //the money that will be earned from this order
+  const price = document.createElement('li');
+  price.style.textDecoration='underline';
+  price.textContent=`$${burgerPrice}`; //the price of the burger
+  list.appendChild(price);
+
+  place.appendChild(list); //appending the list to the avaliable order
 }
 
 startGame();

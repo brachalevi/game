@@ -1,3 +1,19 @@
 h1{
     font-weight: bold;
+    text-align: center;
+}
+
+body{
+    font-family: 'Gabarito', sans-serif;
+}
+
+.buttons{
+    color: #4b76de;
+    background-color: #abc3ff;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.buttons:active{
+    transform:translateY(2px);
 }

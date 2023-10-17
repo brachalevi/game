@@ -6,9 +6,20 @@
     <title>Login</title>
     <link rel="icon" type="image/x-icon" href="../media/prefabs/patty.png">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
-    <link href="../CSS/game-style.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/forms.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <!-- form of login - if you have a user register -->
+    <h1>Login</h1>
+    <form class="sign-form">
+        <input type="text" placeholder="username"><br>
+        <input type="password" placeholder="password"><br>
+        <button class="buttons">Send</button>
+        <p>Don't have a user? <a href="../html/register.html">click here</a></p>
+    </form>
+    <!-- if falid to insert right details that arent right show alert for 5 seconds -->
+
+    <!-- script -->
+    <script src="../JS/formsValidation.js"></script>
 </body>
 </html>

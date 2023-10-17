@@ -1,5 +1,5 @@
-const money=moneyEarned;
-const moneyText=document.getElementById('money-score');
+const money=moneyEarned; //to fix
+const moneyText=document.getElementById("money-score");
 moneyText.textContent+=`$${money}`;
 
 const gameFeedback=document.getElementById('game-feedback');
@@ -16,3 +16,6 @@ else if (money<300){
 else{
     gameFeedback.textContent='YOU ARE A LEGEND';
 }
+
+console.log(money);
+// you get score based on your money and that is in your account
