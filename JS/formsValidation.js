@@ -18,16 +18,23 @@ const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
 const addUserToLocalStorage = (username, password, email) => {
+    if(getUsersFromLocalStorage()==[]){
+        userId = true;
+    }
+    else{
+        let userId = !getUsersFromLocalStorage().pop().userId;
+    }
     const user = {
         username: username,
         password: password,
         email: email,
-        points: 0
+        points: 0,
+        active: true,
+        userId: userId
     };
     const users = getUsersFromLocalStorage();
     users.push(user);
     saveUsersToLocalStorage(users);
-    //console.log(JSON.parse(getUsersFromLocalStorage("users")));
 }
 const getUserByUsername = username => {
     let users = getUsersFromLocalStorage();
@@ -58,12 +65,6 @@ const viledRegister = () => {
         alert("The username already exists in the system");
         return;
     }
-    /*if isnt legal userName*/
-    if (false) {
-        /*chack the error*/
-        alert("The username ilegel");
-        return;
-    }
     if (!isValidPassword(password)) {
         /*chack the error*/
         alert("error-ilegel pasword");
@@ -80,7 +81,7 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
-    window.location.href = "../html/login.html";
+    location.href = "../html/login.html";
 
 }
 
@@ -106,7 +107,7 @@ const viledLogin = () => {
         }
         return;
     }
-    window.location.href = "../html/startGame.html";
+    location.href = "../html/startGame.html";
 }
 
 
