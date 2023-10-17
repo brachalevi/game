@@ -17,10 +17,7 @@
 
 #orders{
     grid-area: orders;
-}
-
-#feedback{
-    grid-area: feedback;
+    margin-bottom: 10px;
 }
 
 #timer{
@@ -42,14 +39,15 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    /* background-repeat: no-repeat;
+    width:300px;
+    background-repeat: repeat;
     background-size:cover;
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/015/858/small/white-glass-transparent-frame-free-png.png');*/
+    background-image: url('../media/glass.png');
 } 
 
 #plate{
     height: 100px;
-    width:300px;
+    width:250px;
     padding: 10px;
     padding-top: 0px;
     order:6;
@@ -103,7 +101,7 @@
 }
 
 .ingredient{
-    width:200px;
+    width:170px;
 }
 
 
@@ -127,7 +125,7 @@
 
 #ingredients{
     grid-area: ingredients;
-    background-image :url('../media/prefabs/table.png');
+    /* background-image :url('../media/prefabs/table.png'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -214,6 +212,7 @@
 #feedback{
     width: min-content;
     margin: auto;
+    grid-area: feedback;
 }
 
 .amount-label{
@@ -236,4 +235,5 @@
     border: 2px solid black;
     padding: 10px;
     text-align: center;
+    margin: 5px;
 }

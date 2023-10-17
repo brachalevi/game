@@ -43,6 +43,10 @@ const checkPlating=()=>{
         const burger=currentOrders[j].burger;
         let countCorrectIngredients=0;
 
+
+        console.log(burger);
+        console.log(platingArray);
+        
         //sometimes it says its correct only if ypu did it twice
 
         if (burger.length===platingArray.length){ //if the length of the plating array and the array of the current order are a match
@@ -51,7 +55,9 @@ const checkPlating=()=>{
                     countCorrectIngredients++;
                 }
             }
+            console.log(countCorrectIngredients);
             if (countCorrectIngredients===platingArray.length){
+                console.log('index '+j);
                 return j;
             }
         }
@@ -61,8 +67,6 @@ const checkPlating=()=>{
 
 const serveClicked=()=>{ 
     const avaliablePlace=checkPlating();
-    // const placeId="order"+(avaliablePlace+1)+"-text";
-    // const placeElement=document.getElementById(placeId);
     const placeElement=placesForOrders[avaliablePlace];
     if (avaliablePlace!==-1){
         sendFeedback(`+$${currentOrders[avaliablePlace].price}`);
@@ -87,6 +91,9 @@ reducing onr from the amount of the ingredient*/
 const addIngredient=(target)=>{
     const targetId=target.id.toString(); //getting the tray id
     const ingredientId=targetId.substring(0, targetId.length-5); //the id without '-tray'
+    if (platingArray.includes(ingredientId)){
+        return;
+    }
     platingArray.push(ingredientId); 
     const currentIngredient=document.getElementById(ingredientId);
     const amountId=ingredientId+"-amount-label";
@@ -99,11 +106,10 @@ const addIngredient=(target)=>{
                 if (stock[i].amount===0){
                     buyIngredient(stock[i].ingredient, currentAmount);
                 }
-                break;
             }
         }
     }
-    
+
     currentIngredient.classList.remove('hidden'); //the ingredient is visable
     currentIngredient.style.order=ingredientsOrder;  //the rder of the ingredient in the flex box
     ingredientsOrder--; //the next ingredient's order

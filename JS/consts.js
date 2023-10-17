@@ -39,7 +39,8 @@ const stock = [
     {
         ingredient: 'lettuce',
         amount:6,
-        price:20
+        price:20,
+        maxAmount:10
     },
     {
         ingredient: 'onion',
