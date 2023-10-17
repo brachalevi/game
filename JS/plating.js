@@ -43,21 +43,13 @@ const checkPlating=()=>{
         const burger=currentOrders[j].burger;
         let countCorrectIngredients=0;
 
-
-        console.log(burger);
-        console.log(platingArray);
-        
-        //sometimes it says its correct only if ypu did it twice
-
         if (burger.length===platingArray.length){ //if the length of the plating array and the array of the current order are a match
             for (let i=0; i<platingArray.length; i++){
                 if (platingArray[i]===burger[i]){ // if in the same place there is the same ingredient
                     countCorrectIngredients++;
                 }
             }
-            console.log(countCorrectIngredients);
             if (countCorrectIngredients===platingArray.length){
-                console.log('index '+j);
                 return j;
             }
         }
