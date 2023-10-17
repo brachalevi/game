@@ -1,60 +1,13 @@
-const timerDisplay = document.getElementById('timer');
 const currentOrders = [
-    document.getElementById("order1-text"),
-    document.getElementById("order2-text"),
-    document.getElementById("order3-text")
+  document.getElementById("order1-text"),
+  document.getElementById("order2-text"),
+  document.getElementById("order3-text")
 ]; //the paragraph element to put the order detailes into
 
-let timeLeft = 90; //timer starts at 90 seconds
-//need to add an option of choosing the game length
-let timer;
-
-//! Pay attention to indentation and ctrl + shift + i
-
-/*this function will start the timer and call to fill 3 orders*/
-function startGame(){
-  //will happen every 1 second
-  timer = setInterval(function () {
-      timeLeft--;
-      timerDisplay.textContent = timeLeft + ' seconds';
-  
-      if (timeLeft === 0) {
-        stopTimer();
-        location.href='../html/gameOver.html';
-      }
-    }, 1000); 
-
-    //filling the first 3 orders one by one
-    setTimeout(function () {
-        document.getElementById('order1-div').classList.remove('not-visable'); //showing the order div
-        fillOrder(currentOrders[0]); //showing the order text
-    }, 1000); //after 1 second
-
-    setTimeout(function () {
-        document.getElementById('order2-div').classList.remove('not-visable');
-        fillOrder(currentOrders[1]);
-    }, 5000); //after 5 seconds
-
-    setTimeout(function () {
-        document.getElementById('order3-div').classList.remove('not-visable');
-        fillOrder(currentOrders[2]);
-    }, 8000); //after 8 seconds
-}
-
-//stop the timer
-function stopTimer() {
-    clearInterval(timer);
-}
-
-
-//! If each of those functions conation just one line do just one function
-
-/*put a new random order in placeAvaliable after a given delay-still not finish*/
+/*put a new random order in placeAvaliable*/
 function fillOrder(placeAvaliable){
   const rndBurger=order_bank[Math.floor(order_bank.length*Math.random())];
-  // const strForOrder=stringOrder(rndBurger);
   listOfItems(rndBurger, placeAvaliable);
-  // placeAvaliable.textContent = strForOrder; //the text in the available order
 }
 
 const listOfItems=(order, place)=>{
@@ -94,5 +47,3 @@ const listOfItems=(order, place)=>{
 
   place.appendChild(list); //appending the list to the avaliable order
 }
-
-startGame();

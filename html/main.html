@@ -31,35 +31,41 @@
                 </p>
             </div>
         </div>
-        <div><p id="timer">90 seconds</p></div>
-        <div><p id="money">$0</p></div>
+        <div><p id="timer" class="status">90 seconds</p></div>
+        <div><p id="money" class="status">$0</p></div>
         <div id="ingredients">
             <div class="row">
                 <div class="tray">
                     <img id="tomato-tray" class="tray-img unpressed" src="../media/tomato-tray.png">
+                    <label class="amount-label" id="tomato-amount-label">0</label>
                 </div>
                 <div class="tray">
                     <img id="onion-tray" class="tray-img unpressed" src="../media/onion-tray.png">
+                    <label class="amount-label" id="onion-amount-label">0</label>
                 </div>
                 <div class="tray">
                     <img id="lettuce-tray" class="tray-img unpressed" src="../media/lettuce-tray.png">
+                    <label class="amount-label" id="lettuce-amount-label">0</label>
                 </div>
             </div>
             <div class="row">
                 <div class="tray">
                     <img id="top-bun-tray" class="tray-img unpressed" src="../media/top-bun-tray.png">
+                    <label class="amount-label" id="top-bun-amount-label">0</label>
                 </div>
                 <div class="tray">
                     <img id="bottom-bun-tray" class="tray-img unpressed" src="../media/bottom-bun-tray.png">
+                    <label class="amount-label" id="bottom-bun-amount-label">0</label>
                 </div>
                 <div class="tray">
                     <img id="patty-tray" class="tray-img unpressed" src="../media/patty-tray.png">
+                    <label class="amount-label" id="patty-amount-label">0</label>
                 </div>
             </div>
         </div>
         
         <div id="feedback">
-            <p id="feedback-text">Here you will get feedback about the game</p>
+            <p id="feedback-text"></p>
             <!-- if he got the order wrong or right -->
         </div>
         <div id="serve">
@@ -78,11 +84,13 @@
     </div>
 
     <!-- scripts -->
-    <script src="../JS/gameplay.js"></script>
     <script src="../JS/consts.js"></script>
+    <script src="../JS/feedback.js"></script>
     <script src="../JS/money.js"></script>
-    <script src="../JS/gameOverScore.js"></script>
+    <script src="../JS/plating.js"></script> 
     <script src="../JS/orderCall.js"></script>
-    <script src="../JS/plating.js"></script>
+    <script src="../JS/gameplay.js"></script>
+    <script src="../JS/gameOverScore.js"></script>
+   
 </body>
 </html>
