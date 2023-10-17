@@ -1,6 +1,6 @@
-const money=moneyEarned; //to fix
+const money=moneyEarned;
 const moneyText=document.getElementById("money-score");
-moneyText.textContent+=`$${money}`;
+moneyText.textContent=`You earned $${money}`;
 
 const gameFeedback=document.getElementById('game-feedback');
 

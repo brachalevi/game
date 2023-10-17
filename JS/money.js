@@ -1,4 +1,4 @@
-let moneyEarned=200; //in the start of the game
+let moneyEarned=0; //in the start of the game
 const moneyDisplay=document.getElementById('money');
 
 const addMoney=(amount)=>{

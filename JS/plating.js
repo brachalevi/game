@@ -67,8 +67,8 @@ const checkPlating=()=>{
 
 const serveClicked=()=>{ 
     const avaliablePlace=checkPlating();
-    const placeElement=placesForOrders[avaliablePlace];
     if (avaliablePlace!==-1){
+        const placeElement=placesForOrders[avaliablePlace];
         sendFeedback(`+$${currentOrders[avaliablePlace].price}`);
         addMoney(currentOrders[avaliablePlace].price);
         fillOrder(placeElement);
@@ -137,8 +137,6 @@ const fillIngredient=(target)=>{
                 currentAmount.textContent=stock[i].amount;
                 document.getElementById(targetId).classList.remove("black");
                 sendFeedback(`-$${stock[i].price}`);
-                // /remove or try not/
-                // /nedd to add func thet chak and add the addIngr/
             }
             else{
                 sendFeedback("You don't have enough money");
