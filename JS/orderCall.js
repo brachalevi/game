@@ -1,13 +1,15 @@
 const timerDisplay = document.getElementById('timer');
 const currentOrders = [
-  document.getElementById("order1-text"),
-  document.getElementById("order2-text"),
-  document.getElementById("order3-text")
+    document.getElementById("order1-text"),
+    document.getElementById("order2-text"),
+    document.getElementById("order3-text")
 ]; //the paragraph element to put the order detailes into
 
 let timeLeft = 90; //timer starts at 90 seconds
 //need to add an option of choosing the game length
 let timer;
+
+//! Pay attention to indentation and ctrl + shift + i
 
 /*this function will start the timer and call to fill 3 orders*/
 function startGame(){
@@ -24,18 +26,18 @@ function startGame(){
 
     //filling the first 3 orders one by one
     setTimeout(function () {
-      document.getElementById('order1-div').classList.remove('not-visable'); //showing the order div
-      fillOrder(currentOrders[0]); //showing the order text
+        document.getElementById('order1-div').classList.remove('not-visable'); //showing the order div
+        fillOrder(currentOrders[0]); //showing the order text
     }, 1000); //after 1 second
 
     setTimeout(function () {
-      document.getElementById('order2-div').classList.remove('not-visable');
-      fillOrder(currentOrders[1]);
+        document.getElementById('order2-div').classList.remove('not-visable');
+        fillOrder(currentOrders[1]);
     }, 5000); //after 5 seconds
 
     setTimeout(function () {
-      document.getElementById('order3-div').classList.remove('not-visable');
-      fillOrder(currentOrders[2]);
+        document.getElementById('order3-div').classList.remove('not-visable');
+        fillOrder(currentOrders[2]);
     }, 8000); //after 8 seconds
 }
 
@@ -43,6 +45,9 @@ function startGame(){
 function stopTimer() {
     clearInterval(timer);
 }
+
+
+//! If each of those functions conation just one line do just one function
 
 /*put a new random order in placeAvaliable after a given delay-still not finish*/
 function fillOrder(placeAvaliable){

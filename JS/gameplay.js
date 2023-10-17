@@ -127,13 +127,15 @@ const restartClicked=()=>{
 }
 
 const checkPlating=()=>{
+    //! You didn't create currentOrders
     for (let j=0; j<currentOrders.length; j++){ //checking for each one of the current orders
         if (currentOrders[j].length===platingArray.length){ //if the length of the plating array and the array of the current order are a match
+            //! It is better to not use var, use let instead    
             var countCorrectIngredients=0;
             for (let i=0; i<platingArray.length; i++){
                 if (platingArray[i]===currentOrders[j][i]){ // if in the same place there is the same ingredient
                     countCorrectIngredients++;
-                }
+                } //! Why you need this?
                 else{
                     break;
                 }
@@ -153,6 +155,8 @@ const addIngredient=(target)=>{
     const currentIngredient=document.getElementById(ingredientId);
     for (let i=0; i<stock.length; i++){
         if (stock[i].ingredient===ingredientId){ //finding the ingredient in stock
+            //! In general it better to do first the option that cut the function, in this case if amount === 0
+            //! Better check if > 0
             if (stock[i].amount!==0){
                 stock[i].amount--; //reducing one from the ingredient's amount
                 if (stock[i].amount===0){
@@ -178,7 +182,8 @@ const addIngredient=(target)=>{
 }
 
 const noPointer=(target)=>{
-    const targetId=target.id.toString(); //getting the tray id
+    //! If you don't use targetId remove it
+    const targetId=target.id.toString(); //getting the tray id 
     target.classList.remove('unpressed'); //no pointer when hovering above the target
 }
 
