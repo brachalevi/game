@@ -10,11 +10,13 @@
     'plating plating feedback ingredients ingredients ingredients'
     'plating plating feedback ingredients ingredients ingredients'
     'plating plating serve ingredients ingredients ingredients';
+    background-image: url('../media/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #orders{
     grid-area: orders;
-    background-color: palevioletred;
 }
 
 #feedback{
@@ -23,30 +25,27 @@
 
 #timer{
     grid-area: timer;
-    background-color: rgb(112, 216, 181);
-
 }
 
 #money{
     grid-area: money;
-    background-color: rgb(237, 239, 145);
 
 }
 
 #serve{
     grid-area: serve;
-    background-color: rgb(75, 9, 31);
-
 }
 
 #plating{
     grid-area: plating;
     display: flex;
     flex-direction: column;
-    background-color: rgb(112, 157, 216);
     justify-content: flex-end;
     align-items: center;
-}
+    /* background-repeat: no-repeat;
+    background-size:cover;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/015/858/small/white-glass-transparent-frame-free-png.png');*/
+} 
 
 #plate{
     height: 100px;
@@ -128,7 +127,9 @@
 
 #ingredients{
     grid-area: ingredients;
-    background-color: rgb(114, 169, 69);
+    background-image :url('../media/prefabs/table.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .not-visable{
@@ -207,9 +208,32 @@
     border-radius: 10%;
     margin: 15px 5px;
     padding: 10px;
+    background-color:  rgb(224, 235, 255);
 }
 
 #feedback{
     width: min-content;
     margin: auto;
+}
+
+.amount-label{
+    position: relative;
+    background-color:  rgb(224, 235, 255);
+    border-radius: 50%;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    height: 15px;
+    width: 15px;
+    display: block;
+    bottom:30px;
+    left: 80px;
+}
+
+.status{
+    background-color:  rgb(224, 235, 255);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
 }
