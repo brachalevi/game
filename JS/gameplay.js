@@ -103,8 +103,8 @@ const resetPlating = () => {
                     }, { once: true });
                 }
                 else {
-                    const amountId=ingredientId+"-amount-label";
-                    const currentAmount=document.getElementById(amountId);
+                    const amountId = ingredientId + "-amount-label";
+                    const currentAmount = document.getElementById(amountId);
                     buyIngredient(ingredientId, currentAmount);
                 }
             }
@@ -130,14 +130,14 @@ const resetPlating = () => {
 
 /* amounts */
 
-const resetAmounts=()=>{
-    const amounts=document.getElementsByClassName('amount-label');
-    for (let i=0; i<amounts.length; i++){
-        const labelId=amounts[i].id;
-        const ingredientId=labelId.substring(0, labelId.length-13); //the id without '-label-amount'
-        for (let j=0; j<stock.length; j++){
-            if (stock[j].ingredient===ingredientId){
-                amounts[i].textContent=String(stock[j].maxAmount);
+const resetAmounts = () => {
+    const amounts = document.getElementsByClassName('amount-label');
+    for (let i = 0; i < amounts.length; i++) {
+        const labelId = amounts[i].id;
+        const ingredientId = labelId.substring(0, labelId.length - 13); //the id without '-label-amount'
+        for (let j = 0; j < stock.length; j++) {
+            if (stock[j].ingredient === ingredientId) {
+                amounts[i].textContent = String(stock[j].maxAmount);
             }
         }
     }
@@ -146,7 +146,7 @@ const resetAmounts=()=>{
 
 /* starting the game */
 
-const startGame=()=>{
+const startGame = () => {
     startTimerAndGetOrders();
     resetPlating();
     resetMoney();

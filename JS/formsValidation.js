@@ -18,10 +18,10 @@ const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
 const addUserToLocalStorage = (username, password, email) => {
-    if(getUsersFromLocalStorage()==[]){
+    if (getUsersFromLocalStorage() == []) {
         userId = true;
     }
-    else{
+    else {
         let userId = !getUsersFromLocalStorage().pop().userId;
     }
     const user = {
@@ -109,8 +109,6 @@ const viledLogin = () => {
     }
     location.href = "../html/startGame.html";
 }
-
-
 
 
 
