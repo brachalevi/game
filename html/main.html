@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,13 @@
     <link href="../CSS/game-style.css" rel="stylesheet" type="text/css">
     <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+    <img class="logo-line" src="../media/logo-line.png">
+    <button class="logout-btn buttons" onclick="location.href='../html/homePage.html';">Logout</button>
+    <button class="logout-btn buttons" onclick="location.href='../html/profile.html';">Profile</button>
+    <button class="logout-btn buttons" onclick="location.href='../html/startGame.html';">New game</button>
+
     <div id="container">
         <div id="orders">
             <div class="order not-visable" id="order1-div">
@@ -31,8 +38,12 @@
                 </p>
             </div>
         </div>
-        <div><p id="timer" class="status">90 seconds</p></div>
-        <div><p id="money" class="status">$0</p></div>
+        <div>
+            <p id="timer" class="status">90 seconds</p>
+        </div>
+        <div>
+            <p id="money" class="status">$0</p>
+        </div>
         <div id="ingredients">
             <div class="row">
                 <div class="tray">
@@ -63,7 +74,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="feedback" class="not-visable">
             <p id="feedback-text"></p>
         </div>
@@ -74,23 +85,24 @@
         <div id="plating">
             <img id="top-bun" class="ingredient hidden" src="../media/top-bun-side.png">
             <img id="tomato" class="ingredient hidden" src="../media/tomato-side.png">
-            <img id="onion" class="ingredient hidden" src="../media/onion-side.png">            
+            <img id="onion" class="ingredient hidden" src="../media/onion-side.png">
             <img id="lettuce" class="ingredient hidden" src="../media/lettuce-side.png">
             <img id="patty" class="ingredient hidden" src="../media/patty-side.png">
-            <img id="bottom-bun" class="ingredient hidden" src="../media/bottom-bun-side.png"> 
+            <img id="bottom-bun" class="ingredient hidden" src="../media/bottom-bun-side.png">
             <img id="plate" src="../media/plate.png">
         </div>
     </div>
 
     <!-- scripts -->
-    <script src="../JS/restaurant.js"></script>
+    <script src="../JS/gameDetails.js"></script>
     <script src="../JS/consts.js"></script>
     <script src="../JS/feedback.js"></script>
     <script src="../JS/money.js"></script>
     <script src="../JS/orderCall.js"></script>
-    <script src="../JS/plating.js"></script> 
+    <script src="../JS/plating.js"></script>
     <script src="../JS/gameplay.js"></script>
     <script src="../JS/gameOverScore.js"></script>
-   
+
 </body>
+
 </html>

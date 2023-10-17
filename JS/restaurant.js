@@ -4,16 +4,13 @@ const restaurantsArr = [
         id: 1,
         playersNum: 0,
         score: 0,
-        moneyThisRound:0
     },
     {
-        id: 2,
+        id: 0,
         playersNum: 0,
         score: 0,
-        moneyThisRound:0
     }
 ];
-
 
 //save restaurants as a string to local storage
 const saveRestaurantsToLocalStorage = restaurants => {

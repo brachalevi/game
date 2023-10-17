@@ -1,19 +1,68 @@
-h1{
+h1,
+h2 {
     font-weight: bold;
     text-align: center;
 }
 
-body{
+body {
     font-family: 'Gabarito', sans-serif;
+    background-color: #dce4fa;
 }
 
-.buttons{
+.buttons {
     color: #4b76de;
     background-color: #abc3ff;
     font-weight: bold;
     border-radius: 10px;
+    text-align: center;
+    font-size: large;
+    margin: 5px;
+    padding: 5px;
 }
 
-.buttons:active{
-    transform:translateY(2px);
+.buttons:active {
+    transform: translateY(2px);
+}
+
+#round-logo {
+    margin-top: 40px;
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.home-page-btns {
+    width: 100px;
+    position: absolute;
+    top: 80%;
+    left: 46%;
+}
+
+#login-btn {
+    top: 90%;
+}
+
+.logo-line {
+    height: 50px;
+}
+
+.logout-btn {
+    float: right;
+}
+
+.seconds-btn1 {
+    position: absolute;
+    left: 15%;
+}
+
+.seconds-btn2 {
+    position: absolute;
+    left: 45%;
+}
+
+.seconds-btn3 {
+    position: absolute;
+    right: 15%;
 }

@@ -1,10 +1,15 @@
-const money = moneyEarned;
+const game = getGameFromLocalStorage();
+
+const money = game.money || 0;
 const moneyText = document.getElementById("money-score");
 moneyText.textContent = `You earned $${money}`;
 
-let points=Math.floor(100*Math.random()*money/3);
-const pointsText=document.getElementById('points');
-pointsText.textContent+=points;
+let points = Math.floor(100 * Math.random() * (money / 4)) || 0;
+const pointsText = document.getElementById('points');
+pointsText.textContent += points;
+
+const restaurant = game.restaurant;
+addToScore(restaurant, points);
 
 const gameFeedback = document.getElementById('game-feedback');
 
@@ -21,5 +26,5 @@ else {
     gameFeedback.textContent = 'YOU ARE A LEGEND';
 }
 
-console.log(money);
-// you get score based on your money and that is in your account
+const again = document.getElementById("try-again-games-btn");
+const other = document.getElementById("other-games-btn");

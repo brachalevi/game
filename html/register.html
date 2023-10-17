@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,15 @@
     <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
     <link href="../CSS/forms.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+    <img class="logo-line" src="../media/logo-line.png">
     <h1>Register</h1>
     <form class="sign-form">
-        <input type="text" id="username" laceholder="username"><br>
+        <input type="text" id="username" placeholder="username"><br>
         <input type="password" id="password" placeholder="password"><br>
-        <lable id="passwordValidRules">Your password should contain uppercase letter lowercase letter and numbers</lable><br>
+        <lable id="passwordValidRules">Your password should contain numbers, at least one uppercase letter,<br> one
+            lowercase letter and be 8 character long</lable><br>
         <input type="password" id="repeate-password" placeholder="repeate password"><br>
         <input type="email" id="email" placeholder="email"><br>
         <button class="buttons" onclick="viledRegister()">Send</button>
@@ -22,6 +26,8 @@
     </form>
 
     <!-- script -->
+    <script src="../JS/gameDetails.js"></script>
     <script src="../JS/formsValidation.js"></script>
 </body>
+
 </html>

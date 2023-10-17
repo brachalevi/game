@@ -2,9 +2,7 @@
  * Game over
  */
 
-let timeLeft = 90; //timer starts at 90 seconds
-
-const isGameOver = () => {
+const isGameOver = (timeLeft) => {
     if (moneyEarned === 0) {
         for (let i = 0; i < stock.length; i++) {
             if (stock[i].amount !== 0) {
@@ -14,6 +12,7 @@ const isGameOver = () => {
         return true;
     }
     else if (timeLeft === 0) {
+        console.log(true);
         return true;
     }
     return false;
@@ -31,21 +30,24 @@ const isGameOver = () => {
 //need to add an option of choosing the game length
 
 const timerDisplay = document.getElementById('timer');
-let timer;
 
-//starts the timer and fills 3 random orders one by one 
-//will happen every 1 second
-function startTimerAndGetOrders() {
-    //starting the timer
-    timer = setInterval(function () {
+const timer = (timeLeft) => {
+    setInterval(function () {
         timeLeft--;
         timerDisplay.textContent = timeLeft + ' seconds';
 
-        if (isGameOver()) {
+        if (isGameOver(timeLeft)) {
             stopTimer();
             location.href = '../html/gameOver.html';
         }
     }, 1000);
+}
+
+//starts the timer and fills 3 random orders one by one 
+//will happen every 1 second
+function startTimerAndGetOrders(timeLeft) {
+    //starting the timer
+    timer(timeLeft);
 
     //filling the first 3 orders one by one
     setTimeout(function () {
@@ -147,7 +149,11 @@ const resetAmounts = () => {
 /* starting the game */
 
 const startGame = () => {
-    startTimerAndGetOrders();
+    createGame();
+    const newGame = getGameFromLocalStorage();
+    const time = game.time;
+    updateValueOnGame('time', time, game);
+    startTimerAndGetOrders(time);
     resetPlating();
     resetMoney();
     resetStock();

@@ -1,77 +1,77 @@
-#container{
+#container {
     width: 100%;
     height: 100%;
     min-width: 500px;
     min-height: 600px;
     display: grid;
     grid-template-areas:
-    'timer orders orders orders orders orders'
-    'money orders orders orders orders orders'
-    'plating plating feedback ingredients ingredients ingredients'
-    'plating plating feedback ingredients ingredients ingredients'
-    'plating plating serve ingredients ingredients ingredients';
+        'timer orders orders orders orders orders'
+        'money orders orders orders orders orders'
+        'plating plating feedback ingredients ingredients ingredients'
+        'plating plating feedback ingredients ingredients ingredients'
+        'plating plating serve ingredients ingredients ingredients';
     background-image: url('../media/background.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#orders{
+#orders {
     grid-area: orders;
     margin-bottom: 10px;
 }
 
-#timer{
+#timer {
     grid-area: timer;
 }
 
-#money{
+#money {
     grid-area: money;
 
 }
 
-#serve{
+#serve {
     grid-area: serve;
 }
 
-#plating{
+#plating {
     grid-area: plating;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width:300px;
+    width: 300px;
     background-repeat: repeat;
-    background-size:cover;
+    background-size: cover;
     background-image: url('../media/glass.png');
-} 
-
-#plate{
-    height: 100px;
-    width:250px;
-    padding: 10px;
-    padding-top: 0px;
-    order:6;
 }
 
-.tray{
+#plate {
+    height: 100px;
+    width: 250px;
+    padding: 10px;
+    padding-top: 0px;
+    order: 6;
+}
+
+.tray {
     flex-basis: 30%;
     padding: 10px;
 }
 
-.tray-img{
+.tray-img {
     width: 90%;
     height: 170px;
 }
 
-.black{
+.black {
     filter: saturate(10%);
 }
 
-.unpressed:hover{
+.unpressed:hover {
     cursor: pointer;
 }
 
-.plating-buttons{
+.plating-buttons {
     font-size: large;
     display: block;
     margin: 10px;
@@ -80,36 +80,37 @@
     text-align: center;
 }
 
-#tomato{
+#tomato {
     height: 20px;
 }
 
-#onion{
+#onion {
     height: 20px;
 }
 
-#patty{
+#patty {
     height: 60px;
 }
 
-#lettuce, #bottom-bun{
+#lettuce,
+#bottom-bun {
     height: 40px;
 }
 
-#top-bun{
+#top-bun {
     height: 80px;
 }
 
-.ingredient{
-    width:170px;
+.ingredient {
+    width: 170px;
 }
 
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.order{
+.order {
     border-radius: 10%;
     background-color: rgb(224, 235, 255);
     border: 3px solid black;
@@ -117,107 +118,107 @@
     width: 15%;
 }
 
-#orders{
+#orders {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
 }
 
-#ingredients{
+#ingredients {
     grid-area: ingredients;
     /* background-image :url('../media/prefabs/table.png'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.not-visable{
+.not-visable {
     visibility: hidden;
 }
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#bottom-bun-tray{
+#bottom-bun-tray {
     grid-area: bottom-bun;
 }
 
-#top-bun-tray{
+#top-bun-tray {
     grid-area: top-bun;
 }
 
-#patty-tray{
+#patty-tray {
     grid-area: patty;
 }
 
-#tomato-tray{
+#tomato-tray {
     grid-area: tomat;
 }
 
-#lettuce-tray{
+#lettuce-tray {
     grid-area: lettuce;
 }
 
-#onion-tray{
+#onion-tray {
     grid-area: onion;
 }
 
-#bottom-bun-tray{
+#bottom-bun-tray {
     grid-area: bottom-bun;
 }
 
-#top-bun-tray{
+#top-bun-tray {
     grid-area: top-bun;
 }
 
-#patty-tray{
+#patty-tray {
     grid-area: patty;
 }
 
-#tomato-tray{
+#tomato-tray {
     grid-area: tomat;
 }
 
-#lettuce-tray{
+#lettuce-tray {
     grid-area: lettuce;
 }
 
-#onion-tray{
+#onion-tray {
     grid-area: onion;
 }
 
-.new-order-heading{
+.new-order-heading {
     font-weight: bold;
     text-align: center;
     display: block;
     margin-top: 1px;
 }
 
-.order-details{
+.order-details {
     list-style: none;
     list-style-position: outside;
 }
 
-#feedback-text{
+#feedback-text {
     display: block;
     border: 3px dashed black;
     border-radius: 10%;
     margin: 15px 5px;
     padding: 10px;
-    background-color:  rgb(224, 235, 255);
+    background-color: rgb(224, 235, 255);
 }
 
-#feedback{
+#feedback {
     width: min-content;
     margin: auto;
     grid-area: feedback;
 }
 
-.amount-label{
+.amount-label {
     position: relative;
-    background-color:  rgb(224, 235, 255);
+    background-color: rgb(224, 235, 255);
     border-radius: 50%;
     border: 2px solid black;
     text-align: center;
@@ -225,12 +226,12 @@
     height: 15px;
     width: 15px;
     display: block;
-    bottom:30px;
+    bottom: 30px;
     left: 80px;
 }
 
-.status{
-    background-color:  rgb(224, 235, 255);
+.status {
+    background-color: rgb(224, 235, 255);
     border-radius: 10px;
     border: 2px solid black;
     padding: 10px;
