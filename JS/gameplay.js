@@ -50,17 +50,17 @@ function startTimerAndGetOrders() {
     //filling the first 3 orders one by one
     setTimeout(function () {
         document.getElementById('order1-div').classList.remove('not-visable'); //showing the order div
-        fillOrder(currentOrders[0]); //showing the order text
+        fillOrder(placesForOrders[0]); //showing the order text
     }, 1000); //after 1 second
 
     setTimeout(function () {
         document.getElementById('order2-div').classList.remove('not-visable');
-        fillOrder(currentOrders[1]);
+        fillOrder(placesForOrders[1]);
     }, 5000); //after 5 seconds
 
     setTimeout(function () {
         document.getElementById('order3-div').classList.remove('not-visable');
-        fillOrder(currentOrders[2]);
+        fillOrder(placesForOrders[2]);
     }, 8000); //after 8 seconds
 }
 
@@ -103,7 +103,9 @@ const resetPlating = () => {
                     }, { once: true });
                 }
                 else {
-                    buyIngredient(ingredientId);
+                    const amountId=ingredientId+"-amount-label";
+                    const currentAmount=document.getElementById(amountId);
+                    buyIngredient(ingredientId, currentAmount);
                 }
             }
         }
@@ -114,8 +116,8 @@ const resetPlating = () => {
         trays[i].classList.add('unpressed'); //putting a pointer when hovering over them
     }
 
-    ingredientsOrder = 5; //resets the order of ingredients
-    platingArray = []; //resets the ingredients array
+    //reset variables
+    resetPlatingVariables();
 
     //hidding the buttons
     hidingBtns();
@@ -135,8 +137,7 @@ const resetAmounts=()=>{
         const ingredientId=labelId.substring(0, labelId.length-13); //the id without '-label-amount'
         for (let j=0; j<stock.length; j++){
             if (stock[j].ingredient===ingredientId){
-                amounts[i].textContent=(stock[j].maxAmount).toString();
-                break;
+                amounts[i].textContent=String(stock[j].maxAmount);
             }
         }
     }

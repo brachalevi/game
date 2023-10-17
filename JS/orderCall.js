@@ -1,20 +1,33 @@
-const currentOrders = [
+const placesForOrders = [
   document.getElementById("order1-text"),
   document.getElementById("order2-text"),
   document.getElementById("order3-text")
 ]; //the paragraph element to put the order detailes into
 
+const currentOrders=[];
+
 /*put a new random order in placeAvaliable*/
 function fillOrder(placeAvaliable){
   const rndBurger=order_bank[Math.floor(order_bank.length*Math.random())];
+  const placeIndex=(placeAvaliable.id).substring(5,6);
+  currentOrders[placeIndex-1]=rndBurger;
+  const listId='list-of-items'+placeIndex;
+  const last=document.getElementById(listId);
+  if (last!==null){
+    last.remove();
+  }
   listOfItems(rndBurger, placeAvaliable);
 }
 
 const listOfItems=(order, place)=>{
+  
   const burgerInfo=order.burger;
   const burgerPrice=order.price;
 
+  const placeIndex=(place.id).substring(5,6);
+
   let list=document.createElement('ul');
+  list.id='list-of-items'+placeIndex;
   list.style.listStyleType='none';
 
   for (let i = burgerInfo.length-1; i>=0; i--) { //starting from the end to the start
