@@ -17,7 +17,11 @@ body {
     text-align: center;
     font-size: large;
     margin: 5px;
-    padding: 5px;
+    padding: 7px;
+}
+
+#try-again-btn{
+    font-size: larger;
 }
 
 .buttons:active {
@@ -65,4 +69,20 @@ body {
 .seconds-btn3 {
     position: absolute;
     right: 15%;
+}
+
+.your{
+    border-right: 2px solid black;
+}
+
+#in-lead{
+    border-top: 2px solid black;
+}
+
+.not-visable {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none;
 }

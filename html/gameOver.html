@@ -23,10 +23,31 @@
     <br>
     <h2 id="points">+</h2>
     <table>
-        <!-- your score vs the other team score -->
+        <thead>
+            <tr>
+                <th class="your">Your restaurant</th>
+                <th>Other restaurant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="td-your-score" class="your">Your score</td>
+                <td id="td-other-score">Other score</td>
+            </tr>
+            <tr>
+                <td id="td-your-players" class="your">Your players</td>
+                <td id="td-other-players">Other players</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="not-visable">empty line</td>
+            </tr>
+            <tr>
+                <td colspan="2" id="in-lead">Who is in the lead and by how many points</td>
+            </tr>
+        </tbody>
     </table>
+    <br>
     <button class="buttons" id="try-again-btn">Try again</button>
-    <button class="buttons" id="other-games-btn">Other levels</button>
 
     <!-- script -->
     <script src="../JS/gameDetails.js"></script>

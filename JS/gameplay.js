@@ -151,7 +151,7 @@ const resetAmounts = () => {
 const startGame = () => {
     createGame();
     const newGame = getGameFromLocalStorage();
-    const time = game.time;
+    const time = game.time || 90;
     updateValueOnGame('time', time, game);
     startTimerAndGetOrders(time);
     resetPlating();

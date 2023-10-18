@@ -106,10 +106,6 @@
 }
 
 
-.hidden {
-    display: none;
-}
-
 .order {
     border-radius: 10%;
     background-color: rgb(224, 235, 255);
@@ -129,10 +125,6 @@
     /* background-image :url('../media/prefabs/table.png'); */
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.not-visable {
-    visibility: hidden;
 }
 
 .row {
