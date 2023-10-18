@@ -86,3 +86,24 @@ const logout=()=>{
         }
     }
 }
+
+const getUserById=(id)=>{
+    const users=getUsersFromLocalStorage();
+    for (let i=0; i<users.length; i++){
+        if (users[i].userId===id){
+            return users[i];
+        }
+    }
+}
+
+//updating a value to a key on user with user id of id
+const updateValue = (id, key, value) => {  
+    const users=getUsersFromLocalStorage();  
+    const user=getUserById(id);
+    for (let property in user) {
+        if (user.hasOwnProperty(property) && property === key) {
+            user[property] = value;
+        }
+    }
+    saveUsersToLocalStorage();
+}
