@@ -36,6 +36,9 @@ else {
 addToScore(restaurant, points);
 updateValueOnUser(user, 'points', points);
 updateValueOnUser(user, 'money', 0);
+const last= JSON.parse(localStorage.getItem("lastEntered"));
+last.points+=points;
+localStorage.setItem("lastEntered", JSON.stringify(last));
 
 let otherRestaurant;
 
