@@ -24,6 +24,13 @@ body {
     font-size: larger;
 }
 
+#profile{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: 75%;
+}
+
 .buttons:active {
     transform: translateY(2px);
 }
@@ -85,4 +92,40 @@ body {
 
 .hidden {
     display: none;
+}
+
+#sticky-menu{
+    color: #4b76de;
+    border: 3px solid #4b76de;
+    background-color: #abc3ff;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    position: sticky;
+    top:20%;
+    left:100%;
+    right:0%;
+    width: 200px;
+    /* display:inline-block; */
+}
+
+.profile-dives{
+    margin-top: 6%;
+    border: 3px solid #4b76de;
+    border-radius: 10px;
+    width: 800px;
+    margin-left: 1%;
+}
+
+.div-heading{
+    padding-left: 3%;
+}
+
+#profile-menu{
+    list-style: none;
+    padding-right: 10%;
+}
+
+.profile-list{
+    list-style:none;
 }

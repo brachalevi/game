@@ -22,7 +22,7 @@ const restaurantIdText = document.getElementById("restaurant-id");
 restaurantIdText.textContent += restaurantId;
 
 let seconds = 90;
-const buttons = document.getElementsByClassName('buttons');
+const buttons = document.getElementsByClassName('select-buttons');
 for (let i = 1; i < buttons.length; i++) {
     const button = buttons[i];
     button.addEventListener('click', function (event) {

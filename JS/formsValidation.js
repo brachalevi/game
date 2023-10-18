@@ -58,3 +58,12 @@ const getUserByUsername = username => {
     //! Change it to false
     return -1;
 }
+
+const getUsersInTheSameRestaurant=(id)=>{
+    const sameRestaurant=[];
+    const allUsers=getUsersFromLocalStorage();
+    for (let i=id; i<allUsers.length; i++){
+        sameRestaurant.push(allUsers[i]);
+    }
+    return sameRestaurant;
+}

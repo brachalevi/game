@@ -7,26 +7,26 @@ const validRegister = () => {
 
     if (username === "" || password === "" || repeatePassword === "" || email === "") {
         alert("Please fill in all fields");
-        return;
+        return false;
     }
     /*if the user found*/
     if (getUserByUsername(username) !== -1) {
         alert("The username already exists in the system");
-        return;
+        return false;
     }
     if (!isValidPassword(password)) {
         /*chack the error*/
         alert("error-ilegel pasword");
-        return;
+        return false;
     }
     /*the pasword and the repet not the same*/
     if (password !== repeatePassword) {
         alert("error-The password and the repeat password isn't the same");
-        return;
+        return false;
     }
     if (!isValidEmail(email)) {
         alert("error-ilegal email");
-        return;
+        return false;
     }
     addUserToLocalStorage(username, password, email);
     const user = getUserByUsername(username);
@@ -34,12 +34,14 @@ const validRegister = () => {
     addPlayer(userId % 2);
     localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
+    return true;
     // alert("User registered successfully");
 }
 
 const registerBtn = document.getElementById("send-register-btn");
 
-registerBtn.addEventListener('click', validRegister);
 registerBtn.addEventListener('click', function(){
-    location.href = "../html/startGame.html";
+    if (validRegister){
+        location.href = "../html/startGame.html";
+    }
 });
