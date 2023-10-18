@@ -85,7 +85,6 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
-    /*error-not take me to the paje*/
     location.href = "../html/login.html";
 
 }
@@ -112,12 +111,15 @@ const viledLogin = () => {
         }
         return;
     }
-    /*error-not take me to the paje*/
     location.href = "../html/startGame.html";
 }
 
 
-
-
-
-
+const findActiveUser = () => {
+    const users = getUsersFromLocalStorage();
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].active) {
+            return users[i];
+        }
+    }
+}

@@ -2,9 +2,7 @@
  * Game over
  */
 
-let timeLeft = 90; //timer starts at 90 seconds
-
-const isGameOver = () => {
+const isGameOver = (timeLeft) => {
     if (moneyEarned === 0) {
         for (let i = 0; i < stock.length; i++) {
             if (stock[i].amount !== 0) {
@@ -14,6 +12,7 @@ const isGameOver = () => {
         return true;
     }
     else if (timeLeft === 0) {
+        console.log(true);
         return true;
     }
     return false;
@@ -31,21 +30,24 @@ const isGameOver = () => {
 //need to add an option of choosing the game length
 
 const timerDisplay = document.getElementById('timer');
-let timer;
 
-//starts the timer and fills 3 random orders one by one 
-//will happen every 1 second
-function startTimerAndGetOrders() {
-    //starting the timer
-    timer = setInterval(function () {
+const timer = (timeLeft) => {
+    setInterval(function () {
         timeLeft--;
         timerDisplay.textContent = timeLeft + ' seconds';
 
-        if (isGameOver()) {
+        if (isGameOver(timeLeft)) {
             stopTimer();
             location.href = '../html/gameOver.html';
         }
     }, 1000);
+}
+
+//starts the timer and fills 3 random orders one by one 
+//will happen every 1 second
+function startTimerAndGetOrders(timeLeft) {
+    //starting the timer
+    timer(timeLeft);
 
     //filling the first 3 orders one by one
     setTimeout(function () {
@@ -103,8 +105,8 @@ const resetPlating = () => {
                     }, { once: true });
                 }
                 else {
-                    const amountId=ingredientId+"-amount-label";
-                    const currentAmount=document.getElementById(amountId);
+                    const amountId = ingredientId + "-amount-label";
+                    const currentAmount = document.getElementById(amountId);
                     buyIngredient(ingredientId, currentAmount);
                 }
             }
@@ -130,14 +132,14 @@ const resetPlating = () => {
 
 /* amounts */
 
-const resetAmounts=()=>{
-    const amounts=document.getElementsByClassName('amount-label');
-    for (let i=0; i<amounts.length; i++){
-        const labelId=amounts[i].id;
-        const ingredientId=labelId.substring(0, labelId.length-13); //the id without '-label-amount'
-        for (let j=0; j<stock.length; j++){
-            if (stock[j].ingredient===ingredientId){
-                amounts[i].textContent=String(stock[j].maxAmount);
+const resetAmounts = () => {
+    const amounts = document.getElementsByClassName('amount-label');
+    for (let i = 0; i < amounts.length; i++) {
+        const labelId = amounts[i].id;
+        const ingredientId = labelId.substring(0, labelId.length - 13); //the id without '-label-amount'
+        for (let j = 0; j < stock.length; j++) {
+            if (stock[j].ingredient === ingredientId) {
+                amounts[i].textContent = String(stock[j].maxAmount);
             }
         }
     }
@@ -146,8 +148,12 @@ const resetAmounts=()=>{
 
 /* starting the game */
 
-const startGame=()=>{
-    startTimerAndGetOrders();
+const startGame = () => {
+    createGame();
+    const newGame = getGameFromLocalStorage();
+    const time = game.time || 90;
+    updateValueOnGame('time', time, game);
+    startTimerAndGetOrders(time);
     resetPlating();
     resetMoney();
     resetStock();

@@ -1,13 +1,13 @@
-.sign-form{
+.sign-form {
     margin: auto;
     text-align: center;
 }
 
-input{
+input {
     margin: 5px;
 }
 
-#passwordValidRules{
-    color:rgb(105, 105, 105);
+#passwordValidRules {
+    color: rgb(105, 105, 105);
     font-size: small;
 }

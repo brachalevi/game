@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+    <img class="logo-line" src="../media/logo-line.png">
+    <button class="logout-btn buttons" onclick="location.href='../html/homePage.html';">Logout</button>
+    <button class="logout-btn buttons" onclick="location.href='../html/profile.html';">Profile</button>
+    <button class="logout-btn buttons" onclick="location.href='../html/startGame.html';">New game</button>
+
+    <h1 id="restaurant-id">Restaurant </h1>
     <h2>Choose game length</h2>
-    <!-- choose game length -->
-    <!-- start -->
+    <button class="buttons seconds-btn1" id="30-sec-btn">30 seconds</button>
+    <button class="buttons seconds-btn2" id="60-sec-btn">60 seconds</button>
+    <button class="buttons seconds-btn3" id="90-sec-btn">90 seconds</button>
+
+    <!-- scripts -->
+    <script src="../JS/gameDetails.js"></script>
+    <script src="../JS/formsValidation.js"></script>
+    <script src="../JS/restaurant.js"></script>
+    <script src="../JS/chooseLength.js"></script>
 </body>
+
 </html>

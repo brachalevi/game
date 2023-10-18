@@ -1,22 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME OVER</title>
+    <title>Game over</title>
     <link rel="icon" type="image/x-icon" href="../media/prefabs/patty.png">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+    <img class="logo-line" src="../media/logo-line.png">
+    <button class="logout-btn buttons" onclick="location.href='../html/homePage.html';">Logout</button>
+    <button class="logout-btn buttons" onclick="location.href='../html/profile.html';">Profile</button>
+    <button class="logout-btn buttons" onclick="location.href='../html/startGame.html';">New game</button>
+
     <h1>Your time is up!</h1>
     <br>
-    <h2 id="money-score">You earned </h2>
+    <h2 id="money-score"></h2>
     <h2 id="game-feedback"></h2>
+    <br>
+    <h2 id="points">+</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="your">Your restaurant</th>
+                <th>Other restaurant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="td-your-score" class="your">Your score</td>
+                <td id="td-other-score">Other score</td>
+            </tr>
+            <tr>
+                <td id="td-your-players" class="your">Your players</td>
+                <td id="td-other-players">Other players</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="not-visable">empty line</td>
+            </tr>
+            <tr>
+                <td colspan="2" id="in-lead">Who is in the lead and by how many points</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
     <button class="buttons" id="try-again-btn">Try again</button>
-    <button class="buttons" id="other-games-btn">Other games</button>
 
     <!-- script -->
+    <script src="../JS/gameDetails.js"></script>
+    <script src="../JS/restaurant.js"></script>
+    <script src="../JS/money.js"></script>
     <script src="../JS/gameOverScore.js"></script>
 </body>
+
 </html>
