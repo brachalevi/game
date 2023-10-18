@@ -139,10 +139,18 @@ const fillIngredient = (target) => {
     }
 }
 
+const findIndexInStock=(ingredient)=>{
+    for (let i=0; i<stock.length; i++){
+        if (stock[i].ingredient===ingredient){
+            return i;
+        }
+    }
+}
+
 // /change the event to buy and put a fill masseg/
 function buyIngredient(ingredient, place) {
     let trayId = ingredient + "-tray";
-    place.textContent = 'Buy';
+    place.textContent = `$${stock[findIndexInStock(ingredient)].price}`;
     const tray = document.getElementById(trayId);
     tray.classList.add("black");
     tray.addEventListener('click', function click(event) {

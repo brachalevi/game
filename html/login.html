@@ -15,15 +15,17 @@
     <img class="logo-line" src="../media/logo-line.png">
     <h1>Login</h1>
     <form class="sign-form">
-        <input type="text" placeholder="username" required><br>
-        <input type="password" placeholder="password"><br>
-        <button class="buttons" onclick="viledLogin()">Send</button>
+        <input id="login-username" type="text" placeholder="username" required><br>
+        <input id="login-password" type="password" placeholder="password"><br>
+        <button class="buttons" id="send-login-btn">Send</button>
         <p>Don't have a user? <a href="../html/register.html">click here</a></p>
     </form>
     <!-- if falid to insert right details that arent right show alert for 5 seconds -->
 
-    <!-- script -->
+    <!-- scripts -->
+    <script src="../JS/restaurant.js"></script>
     <script src="../JS/gameDetails.js"></script>
+    <script src="../JS/login.js"></script>
     <script src="../JS/formsValidation.js"></script>
 </body>
 

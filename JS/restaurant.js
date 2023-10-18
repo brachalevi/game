@@ -65,7 +65,7 @@ const addPlayer = (id) => {
     const restaurants = getRestaurantsFromLocalStorage();
     const restaurant = restaurants[id];
     for (let property in restaurant) {
-        if (restaurant.hasOwnProperty(property) && property === 'playerNum') {
+        if (restaurant.hasOwnProperty(property) && property === 'playersNum') {
             restaurant[property]++;
         }
     }
