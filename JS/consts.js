@@ -9,6 +9,10 @@ const order_bank = [
         price: 20
     },
     {
+        burger: ['bottom-bun', 'tomato', 'onion', 'lettuce', 'top-bun'],
+        price: 30
+    },
+    {
         burger: ['bottom-bun', 'patty', 'tomato', 'top-bun'],
         price: 35
     },
@@ -22,7 +26,7 @@ const order_bank = [
     },
     {
         burger: ['bottom-bun', 'tomato', 'patty', 'onion', 'lettuce', 'top-bun'],
-        price: 20
+        price: 55
     } //add more
 ];
 

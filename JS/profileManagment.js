@@ -77,8 +77,11 @@ const difference = getRestaurantsById(restaurant).score - getRestaurantsById(oth
 if (difference > 0) {
     statsArr.push(`Your restaurant is leading by ${difference} points`);
 }
-else {
+else if (difference < 0) {
     statsArr.push(`Other restaurant is leading by ${Math.abs(difference)} points`);
+}
+else {
+    statsArr.push(`There is a tie between the restaurants`);
 }
 
 createList(statsList, statsArr);

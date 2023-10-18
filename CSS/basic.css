@@ -138,3 +138,12 @@ body {
 .profile-list{
     list-style:none;
 }
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons:hover{
+    border: 4px solid #6284d5;
+}

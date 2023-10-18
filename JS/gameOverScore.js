@@ -25,7 +25,17 @@ else {
 }
 
 const again = document.getElementById("try-again-games-btn");
-//if you press it will choose the same time as the current
+
+
+/** TO DO */
+// again.addEventListener('click', function(){
+//     localStorage.setItem('lastTime', currentGame.time);
+//     createGame();
+//     const newGame=getGameFromLocalStorage();
+//     // updateValueOnGame('time',)
+//     location.href='../html/main.html';
+// })
+
 
 const restaurant = currentGame.restaurant;
 addToScore(restaurant, points);
@@ -57,8 +67,11 @@ const difference = getRestaurantsById(restaurant).score - getRestaurantsById(oth
 if (difference > 0) {
     inLead.textContent = `Your restaurant is leading by ${difference} points`;
 }
-else {
+else if (difference < 0) {
     inLead.textContent = `Other restaurant is leading by ${Math.abs(difference)} points`;
+}
+else {
+    inLead.textContent = `There is a tie between the restaurants`;
 }
 
 localStorage.removeItem('game');
