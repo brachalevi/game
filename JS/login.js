@@ -22,13 +22,6 @@ const validLogin = (username, password) => {
         return false;
     }
     if (password !== user.password) {
-        /*failedLoginAttempts++;
-        if (failedLoginAttempts >= 3) {
-            alert("You have exceeded the maximum login attempts. Please try again in 5 seconds.");
-            setTimeout(() => {
-                failedLoginAttempts = 0; // Reset the login attempts counter after the delay
-            }, 5000); // 5000 milliseconds = 5 seconds
-        }*/
         alert("Error: Wrong password");
         return false;
     }

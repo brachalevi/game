@@ -1,3 +1,7 @@
+if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
+    alert("good");
+    location.href = '../html/homePage.html';
+} 
 /**
  * Game over
  */
@@ -157,9 +161,3 @@ const startGame = () => {
     resetAmounts();
 }
 
-if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
-    alert("good");
-    location.href = '../html/homePage.html';
-} 
-else
-    startGame(); 

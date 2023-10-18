@@ -2,8 +2,8 @@ if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered
     alert("good");
     location.href = '../html/homePage.html';
 } 
-else
-    startGame(); 
+
+   
 let restaurantId=0; //initial value
 
 //getting the current user
@@ -54,3 +54,4 @@ for (let i = 0; i < buttons.length; i++) {
         location.href = '../html/main.html'
     });
 }
+startGame(); 

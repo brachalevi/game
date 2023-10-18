@@ -2,8 +2,6 @@ if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered
     alert("good");
     location.href = '../html/homePage.html';
 } 
-else
-    startGame(); 
 
 //getting the current user
 const lastEnteredStr = localStorage.getItem('lastEntered');
