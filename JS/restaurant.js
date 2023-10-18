@@ -32,7 +32,6 @@ const getRestaurantsFromLocalStorage = () => {
 //updating a value to a key on one of the restaurants
 const updateValue = (id, key, value) => {    
     const restaurants = getRestaurantsFromLocalStorage();
-    console.log(restaurants);
     const restaurant = restaurants[id];
     for (let property in restaurant) {
         if (restaurant.hasOwnProperty(property) && property === key) {

@@ -160,3 +160,5 @@ const startGame = () => {
     resetStock();
     resetAmounts();
 }
+
+startGame();

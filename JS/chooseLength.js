@@ -23,6 +23,9 @@ if (lastEntered.userId) { //if there is a current user
     }
 }
 
+//check if there is game
+ localStorage.removeItem('game');
+
 //writing the restaurant number
 const restaurantIdText = document.getElementById("restaurant-id");
 restaurantIdText.textContent += restaurantId;
@@ -52,4 +55,3 @@ for (let i = 0; i < buttons.length; i++) {
         location.href = '../html/main.html'
     });
 }
-startGame(); 

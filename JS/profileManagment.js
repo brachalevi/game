@@ -92,7 +92,73 @@ createList(statsList, statsArr);
 
 /* change password div */
 
+const changePasswordBtn=document.getElementById("change-password-btn");
+
+const oldPassword=document.getElementById("old-password");
+const confirmOldPassword=document.getElementById("confirm-old-password");
+const newPassword=document.getElementById("new-password");
+const confirmNewPassword=document.getElementById("confirm-new-password");
+
+let saveOldPassword = '';
+let saveConfirmOldPassword = '';
+let saveNewPassword = '';
+let saveConfirmNewPassword = '';
+
+const arrOfInputs=[
+    {
+        value: oldPassword,
+        save: saveOldPassword
+    },
+    {
+        value: confirmOldPassword,
+        save: saveConfirmOldPassword
+    },
+    {
+        value: newPassword,
+        save: saveNewPassword
+    },
+    {
+        value: confirmNewPassword,
+        save: saveConfirmNewPassword
+    }
+];
 
 
+for (let i=0; i<arrOfInputs.length; i++){
+    const current=arrOfInputs[i];
+    (current.value).addEventListener('input', function () {
+        current.save = (current.value).value;
+        console.log(current.save);
+    });
+}
+
+
+const changePassword=()=>{
+    console.log(isValidPassword(newPassword.value));
+    if (oldPassword.value!==confirmOldPassword.value){
+        alert('You need to confirm your old password');
+        return false;
+    }
+    if (newPassword.value!==confirmNewPassword.value){
+        alert('You need to confirm your new password');
+        return false;
+    }
+    if (!isValidPassword(newPassword.value)){
+        alert('Your new password is not valid');
+        return false;
+    }
+    updateValueOnUser(lastEntered.userId, 'password', newPassword.value);
+    const username=lastEntered.username;
+    localStorage.removeItem('lastEntered');
+    const user=getUserByUsername(username);
+    localStorage.setItem('lastEntered', user);
+    location.reload();
+    return true;
+}
+
+changePasswordBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    changePassword();
+});
 
 /* send gift div */

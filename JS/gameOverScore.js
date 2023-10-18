@@ -8,7 +8,6 @@ const restaurant = currentGame.restaurant;
 const user=currentGame.user;
 const time=currentGame.time;
 
-localStorage.removeItem('game');
 localStorage.removeItem('lastTime');
 
 const money = currentGame.money || 0;
@@ -74,6 +73,7 @@ const again = document.getElementById("try-again-btn");
 
 again.addEventListener('click', function () {
     localStorage.setItem('lastTime', time);
+    localStorage.removeItem('game');
     createGame();
     const newGame = getGameFromLocalStorage();
     updateValueOnGame('time', time, newGame);
