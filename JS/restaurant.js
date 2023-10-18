@@ -1,3 +1,9 @@
+//save restaurants as a string to local storage
+const saveRestaurantsToLocalStorage = restaurants => {
+    localStorage.setItem('restaurants', JSON.stringify(restaurants));
+}
+
+if (!localStorage.getItem('restaurants')){
 //array of restaurant objects
 const restaurantsArr = [
     {
@@ -12,13 +18,10 @@ const restaurantsArr = [
     }
 ];
 
+saveRestaurantsToLocalStorage(restaurantsArr);
 
-//save restaurants as a string to local storage
-const saveRestaurantsToLocalStorage = restaurants => {
-    localStorage.setItem('restaurants', JSON.stringify(restaurants)||[]);
 }
 
-saveRestaurantsToLocalStorage(restaurantsArr);
 
 //get restaurants as an array
 const getRestaurantsFromLocalStorage = () => {
@@ -27,8 +30,9 @@ const getRestaurantsFromLocalStorage = () => {
 }
 
 //updating a value to a key on one of the restaurants
-const updateValue = (id, key, value) => {
+const updateValue = (id, key, value) => {    
     const restaurants = getRestaurantsFromLocalStorage();
+    console.log(restaurants);
     const restaurant = restaurants[id];
     for (let property in restaurant) {
         if (restaurant.hasOwnProperty(property) && property === key) {
@@ -40,14 +44,20 @@ const updateValue = (id, key, value) => {
 
 //adding an amount to a restaurant's score
 const addToScore = (id, amount) => {
+    console.log(localStorage);
     const restaurants = getRestaurantsFromLocalStorage();
+    console.log(restaurants);
     const restaurant = restaurants[id];
     for (let property in restaurant) {
         if (restaurant.hasOwnProperty(property) && property === 'score') {
+            console.log(true);
             restaurant[property] += amount;
+            console.log(restaurant);
         }
     }
+    console.log(restaurants);
     saveRestaurantsToLocalStorage(restaurants);
+    console.log(localStorage);
 }
 
 //adding one to a restaurant's player count
@@ -55,7 +65,7 @@ const addPlayer = (id) => {
     const restaurants = getRestaurantsFromLocalStorage();
     const restaurant = restaurants[id];
     for (let property in restaurant) {
-        if (restaurant.hasOwnProperty(property) && property === 'playerNum') {
+        if (restaurant.hasOwnProperty(property) && property === 'playersNum') {
             restaurant[property]++;
         }
     }

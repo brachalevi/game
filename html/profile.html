@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="icon" type="image/x-icon" href="../media/prefabs/patty.png">
+    <link rel="icon" type="image/x-icon" href="../media/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/forms.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -16,9 +18,44 @@
     <button class="logout-btn buttons" onclick="location.href='../html/profile.html';">Profile</button>
     <button class="logout-btn buttons" onclick="location.href='../html/startGame.html';">New game</button>
 
-    <h1>Profile</h1>
+    <div id="sticky-menu">
+        <ul id="profile-menu">
+            <li><a href="#info-div">Info</a></li>
+            <li><a href="#stats-div">Statistics</a></li>
+            <li><a href="#changePsw-div">Change password</a></li>
+            <li><a href="#gift-div">Send a gift</a></li>
+        </ul>
+    </div>
 
-    <!-- script -->
+    <h1 id="profile">Profile</h1>
+
+    <div id="info-div" class="profile-dives">
+        <h3 id="hi-name" class="div-heading"></h3>
+        <ul id="info-list" class="profile-list"></ul>
+    </div>
+
+    <div id="stats-div" class="profile-dives">
+        <h3 class="div-heading">Your statistics</h3>
+        <ul id="stats-list" class="profile-list"></ul>
+    </div>
+
+    <div id="changePsw-div" class="profile-dives">
+        <h3 class="div-heading">Change your password</h3>
+        <form id="changing-form">
+            <input type="password" id="old-password" placeholder="old password"><br>
+            <input type="password" id="confirm-old-password" placeholder="confirm old password"><br><br>
+            <lable class="passwordRules">Your password should contain numbers, at least one uppercase letter, one
+                lowercase letter and be 8 character long</lable><br>
+            <input type="password" id="new-password" placeholder="new password"><br>
+            <input type="password" id="confirm-new-password" placeholder="confirm new password"><br>
+            <button class="buttons" id="change-password-btn">Change</button>
+        </form>
+    </div>
+
+
+    <!-- scripts -->
+    <script src="../JS/formsValidation.js"></script>
+    <script src="../JS/restaurant.js"></script>
     <script src="../JS/profileManagment.js"></script>
 </body>
 
