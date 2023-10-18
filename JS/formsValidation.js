@@ -30,11 +30,12 @@ const saveUsersToLocalStorage = users => {
 const addUserToLocalStorage = (username, password, email) => {
     let userId;
     if(getUsersFromLocalStorage().length === 0){
-        userId = 1;
+        userId = 1; //! Where const/let and why you declere it again without use it inside the else 
     }
     else{
         userId = getUsersFromLocalStorage().pop().userId+1;
     }
+    //! Do a declaration here, read about it, its really cool (;
     const user = {
         username: username,
         password: password,
@@ -59,7 +60,8 @@ const getUserByUsername = username => {
             return users[i];
         }
     }
-    /*the user not found*/
+    /*the user not found*/ 
+    //! Change it to false
     return -1;
 }
 
@@ -82,7 +84,7 @@ const viledRegister = () => {
     }
     if (!isValidPassword(password)) {
         /*chack the error*/
-        alert("error-ilegel pasword");
+        alert("error-ilegel pasword"); 
         return;
     }
     /*the pasword and the repet not the same*/
@@ -96,7 +98,9 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
-    location.href = '../html/login.html'
+    const user=getUserByUsername(username);
+    localStorage.setItem('lastEntered', JSON.stringify(user));
+    location.href = "../html/login.html";
 
 }
 
@@ -107,7 +111,7 @@ const viledLogin = () => {
     /*if the user is not found*/
     const user = getUserByUsername(username);
     if (user === -1) {
-        alert("The username is not exists in the system");
+        alert("The username is not exists in the system"); //! Pay attention to not give the user specific errors like those. This can be useful for hackers  
         return;
     }
     if (password !== user.password) {
@@ -122,8 +126,11 @@ const viledLogin = () => {
         }
         return;
     }
-    alert("go to the start game");
-    location.href = '../html/startGame.html'
+
+    localStorage.setItem('lastEntered', JSON.stringify(user));
+
+
+    location.href = "../html/startGame.html";
 }
 
 

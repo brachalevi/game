@@ -15,7 +15,7 @@ const onionAmount = document.getElementById("onion-amount-label");
 const pattyAmount = document.getElementById("patty-amount-label");
 const topBunAmount = document.getElementById("top-bun-amount-label");
 const bottomBunAmount = document.getElementById("bottom-bun-amount-label");
-
+//! start each words with capital letter
 const servebtn = document.getElementById("serve-btn");
 const restartbtn = document.getElementById("restart-btn");
 

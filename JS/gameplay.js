@@ -11,8 +11,9 @@ const isGameOver = (timeLeft) => {
         }
         return true;
     }
+    //! you don't need here the else if, use just if
     else if (timeLeft === 0) {
-        console.log(true);
+        console.log(true); //! remove
         return true;
     }
     return false;
@@ -119,10 +120,10 @@ const resetPlating = () => {
     }
 
     //reset variables
-    resetPlatingVariables();
+    resetPlatingVariables();  
 
     //hidding the buttons
-    hidingBtns();
+    hidingBtns(); 
 
     //adding click events to the unvisable buttons
     servebtn.addEventListener('click', serveClicked);
@@ -136,7 +137,7 @@ const resetAmounts = () => {
     const amounts = document.getElementsByClassName('amount-label');
     for (let i = 0; i < amounts.length; i++) {
         const labelId = amounts[i].id;
-        const ingredientId = labelId.substring(0, labelId.length - 13); //the id without '-label-amount'
+        const ingredientId = labelId.substring(0, labelId.length - 13); //the id without '-label-amount'  //! here explain what this: labelId.length-13
         for (let j = 0; j < stock.length; j++) {
             if (stock[j].ingredient === ingredientId) {
                 amounts[i].textContent = String(stock[j].maxAmount);
@@ -149,7 +150,6 @@ const resetAmounts = () => {
 /* starting the game */
 
 const startGame = () => {
-    createGame();
     const newGame = getGameFromLocalStorage();
     const time = game.time || 90;
     updateValueOnGame('time', time, game);

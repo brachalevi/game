@@ -12,7 +12,6 @@ const createGame = () => {
     saveGameToLocalStorage(game);
 }
 
-
 //save game a string to local storage
 const saveGameToLocalStorage = game => {
     localStorage.setItem('game', JSON.stringify(game));
