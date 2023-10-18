@@ -34,7 +34,8 @@ const validLogin = (username, password) => {
 
 const loginBtn = document.getElementById("send-login-btn");
 
-loginBtn.addEventListener('click', function () {
+loginBtn.addEventListener('click', function (event) {
+    event.preventDefault();
     if (validLogin(saveInputUsername, saveInputPassword)) {
         location.href = './startGame.html';
     }
