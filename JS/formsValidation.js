@@ -19,7 +19,6 @@ const getUsersFromLocalStorage = () => {
     return users;
 }
 
-
 const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
@@ -98,7 +97,7 @@ const getUserById=(id)=>{
 }
 
 //updating a value to a key on user with user id of id
-const updateValue = (id, key, value) => {  
+const updateValueOnUser = (id, key, value) => {  
     const users=getUsersFromLocalStorage();  
     const user=getUserById(id);
     for (let property in user) {
