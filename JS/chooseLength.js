@@ -28,7 +28,7 @@ let seconds = 90; //initial value
 //getting the buttons of game-length selecting
 const buttons = document.getElementsByClassName('select-buttons');
 
-for (let i = 1; i < buttons.length; i++) {
+for (let i = 0; i < buttons.length; i++) {
     const button = buttons[i];
     //adding a click event to each button
     button.addEventListener('click', function (event) {

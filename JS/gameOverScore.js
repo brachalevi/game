@@ -1,11 +1,15 @@
-if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
-    alert("good");
+if (localStorage.getItem('lastEntered') === null || localStorage.getItem('lastEntered').active === false) {
     location.href = '../html/homePage.html';
-} 
-else
-    startGame(); 
+}
+
 const currentGame = getGameFromLocalStorage();
 
+const restaurant = currentGame.restaurant;
+const user=currentGame.user;
+const time=currentGame.time;
+
+localStorage.removeItem('game');
+localStorage.removeItem('lastTime');
 
 const money = currentGame.money || 0;
 const moneyText = document.getElementById("money-score");
@@ -30,20 +34,6 @@ else {
     gameFeedback.textContent = 'YOU ARE A LEGEND';
 }
 
-const again = document.getElementById("try-again-games-btn");
-
-
-/** TO DO */
-// again.addEventListener('click', function(){
-//     localStorage.setItem('lastTime', currentGame.time);
-//     createGame();
-//     const newGame=getGameFromLocalStorage();
-//     // updateValueOnGame('time',)
-//     location.href='../html/main.html';
-// })
-
-
-const restaurant = currentGame.restaurant;
 addToScore(restaurant, points);
 
 let otherRestaurant;
@@ -80,4 +70,14 @@ else {
     inLead.textContent = `There is a tie between the restaurants`;
 }
 
-localStorage.removeItem('game');
+const again = document.getElementById("try-again-btn");
+
+again.addEventListener('click', function () {
+    localStorage.setItem('lastTime', time);
+    createGame();
+    const newGame = getGameFromLocalStorage();
+    updateValueOnGame('time', time, newGame);
+    updateValueOnGame('user', user, newGame);
+    updateValueOnGame('restaurant', restaurant, newGame);
+    location.href = '../html/main.html';
+});
