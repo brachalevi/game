@@ -34,7 +34,7 @@ else {
 }
 
 addToScore(restaurant, points);
-updateValueOnUser(user, 'points', points);
+addToUserPoints(user, points);
 updateValueOnUser(user, 'money', 0);
 const last= JSON.parse(localStorage.getItem("lastEntered"));
 last.points+=points;

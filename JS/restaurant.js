@@ -1,4 +1,3 @@
-
 //get restaurants as an array
 const getRestaurantsFromLocalStorage = () => {
     const restaurants = JSON.parse(localStorage.getItem('restaurants'));
@@ -30,9 +29,7 @@ const addToScore = (id, amount) => {
             console.log(restaurant);
         }
     }
-    console.log(restaurants);
     saveRestaurantsToLocalStorage(restaurants);
-    console.log(localStorage);
 }
 
 //adding one to a restaurant's player count

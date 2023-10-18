@@ -68,37 +68,53 @@ const getUserByUsername = username => {
 const getUsersInTheSameRestaurant = (id) => {
     const sameRestaurant = [];
     const allUsers = getUsersFromLocalStorage();
-    for (let i = id; i < allUsers.length; i++) {
+    for (let i = (id % 2 - 1); i < allUsers.length; i += 2) {
         sameRestaurant.push(allUsers[i]);
     }
     return sameRestaurant;
 }
 
-const logout=()=>{
+const logout = () => {
     let users = getUsersFromLocalStorage();
     let user = JSON.parse(localStorage.getItem("lastEntered"));
     for (let i = 0; i < users.length; i++) {
-        if(users[i].username === user.username){
+        if (users[i].username === user.username) {
             users[i].active = false;
             saveUsersToLocalStorage(users);
             localStorage.removeItem("lastEntered");
-            location.href='../html/homePage.html';
+            location.href = '../html/homePage.html';
         }
     }
 }
 
 //updating a value to a key on user with user id of id
-const updateValueOnUser = (id, key, value) => {  
-    const users=getUsersFromLocalStorage();  
-    if (id<1 || id>users.length){
+const updateValueOnUser = (id, key, value) => {
+    const users = getUsersFromLocalStorage();
+    if (id < 1 || id > users.length) {
         return;
     }
-    const user=users[id-1];
+    const user = users[id - 1];
     for (let property in user) {
         if (user.hasOwnProperty(property) && property === key) {
             user[property] = value;
         }
     }
-    users[id-1]=user;
+    users[id - 1] = user;
+    saveUsersToLocalStorage(users);
+}
+
+//adding an amount to an user's score
+const addToUserPoints = (id, amount) => {
+    const users = getUsersFromLocalStorage();
+    if (id < 1 || id > users.length) {
+        return;
+    }
+    const user = users[id - 1];
+    for (let property in user) {
+        if (user.hasOwnProperty(property) && property === 'points') {
+            user[property] += amount;
+        }
+    }
+    users[id - 1] = user;
     saveUsersToLocalStorage(users);
 }

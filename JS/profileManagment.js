@@ -60,12 +60,12 @@ const sameRestaurant = getUsersInTheSameRestaurant(lastEntered.userId % 2);
 
 //a function that gets the current player's rank out of an array of players
 const topPlayers = players => {
-    if (players.length === 0) {
+    if (players.length === 1) {
         return 0;
     }
     players.sort((a, b) => b.points - a.points);
-    const currentRank = players.findIndex(player => player.points >= lastEntered.points) - 1;
-    const rank = ((1 + currentRank) / players.length) * 100;
+    const currentRank = players.findIndex(player => player.points <= lastEntered.points) +1;
+    const rank = (currentRank / players.length) * 100;
     return rank;
 }
 
