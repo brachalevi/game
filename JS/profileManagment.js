@@ -163,3 +163,11 @@ changePasswordBtn.addEventListener('click', function(event){
 });
 
 /* send gift div */
+
+const sendMoney=(amount, userToSendId)=>{
+    if (lastEntered.points<amount){
+        return false;
+    }
+    updateValueOnUser(lastEntered.userId, 'points', (lastEntered,points-amount));
+    updateValueOnUser(userToSendId, 'money', (points/10));
+}

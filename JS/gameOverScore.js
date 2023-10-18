@@ -34,6 +34,8 @@ else {
 }
 
 addToScore(restaurant, points);
+updateValueOnUser(user, 'points', points);
+updateValueOnUser(user, 'money', 0);
 
 let otherRestaurant;
 
