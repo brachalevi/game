@@ -40,7 +40,7 @@ const addUserToLocalStorage = (username, password, email) => {
         password: password,
         email: email,
         points: 0,
-        active: false,
+        active: true,
         userId: userId,
         money: 0
     };

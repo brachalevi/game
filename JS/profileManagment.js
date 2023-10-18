@@ -1,6 +1,6 @@
-if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
+if (localStorage.getItem('lastEntered') === null || localStorage.getItem('lastEntered').active === false) {
     location.href = '../html/homePage.html';
-} 
+}
 
 //getting the current user
 const lastEnteredStr = localStorage.getItem('lastEntered');
@@ -93,19 +93,19 @@ createList(statsList, statsArr);
 
 /* change password div */
 
-const changePasswordBtn=document.getElementById("change-password-btn");
+const changePasswordBtn = document.getElementById("change-password-btn");
 
-const oldPassword=document.getElementById("old-password");
-const confirmOldPassword=document.getElementById("confirm-old-password");
-const newPassword=document.getElementById("new-password");
-const confirmNewPassword=document.getElementById("confirm-new-password");
+const oldPassword = document.getElementById("old-password");
+const confirmOldPassword = document.getElementById("confirm-old-password");
+const newPassword = document.getElementById("new-password");
+const confirmNewPassword = document.getElementById("confirm-new-password");
 
 let saveOldPassword = '';
 let saveConfirmOldPassword = '';
 let saveNewPassword = '';
 let saveConfirmNewPassword = '';
 
-const arrOfInputs=[
+const arrOfInputs = [
     {
         value: oldPassword,
         save: saveOldPassword
@@ -125,8 +125,8 @@ const arrOfInputs=[
 ];
 
 
-for (let i=0; i<arrOfInputs.length; i++){
-    const current=arrOfInputs[i];
+for (let i = 0; i < arrOfInputs.length; i++) {
+    const current = arrOfInputs[i];
     (current.value).addEventListener('input', function () {
         current.save = (current.value).value;
         console.log(current.save);
@@ -134,40 +134,77 @@ for (let i=0; i<arrOfInputs.length; i++){
 }
 
 
-const changePassword=()=>{
+const changePassword = () => {
     console.log(isValidPassword(newPassword.value));
-    if (oldPassword.value!==confirmOldPassword.value){
+    if (oldPassword.value !== confirmOldPassword.value) {
         alert('You need to confirm your old password');
         return false;
     }
-    if (newPassword.value!==confirmNewPassword.value){
+    if (newPassword.value !== confirmNewPassword.value) {
         alert('You need to confirm your new password');
         return false;
     }
-    if (!isValidPassword(newPassword.value)){
+    if (!isValidPassword(newPassword.value)) {
         alert('Your new password is not valid');
         return false;
     }
     updateValueOnUser(lastEntered.userId, 'password', newPassword.value);
-    const username=lastEntered.username;
+    const username = lastEntered.username;
     localStorage.removeItem('lastEntered');
-    const user=getUserByUsername(username);
+    const user = getUserByUsername(username);
     localStorage.setItem('lastEntered', user);
     location.reload();
     return true;
 }
 
-changePasswordBtn.addEventListener('click', function(event){
+changePasswordBtn.addEventListener('click', function (event) {
     event.preventDefault();
     changePassword();
 });
 
 /* send gift div */
 
-const sendMoney=(amount, userToSendId)=>{
-    if (lastEntered.points<amount){
+const sendMoney = (amount, userToSendId) => {
+    if (lastEntered.points < amount) {
         return false;
     }
-    updateValueOnUser(lastEntered.userId, 'points', (lastEntered,points-amount));
-    updateValueOnUser(userToSendId, 'money', (points/10));
+    updateValueOnUser(lastEntered.userId, 'points', -amount);
+    const last = JSON.parse(localStorage.getItem("lastEntered"));
+    last.points -=amount;
+    localStorage.setItem("lastEntered",JSON.stringify(last));
+
+    updateValueOnUser(userToSendId, 'money', amount / 10);
+    return true;
 }
+const giftOption = () => {
+    const user = JSON.parse(localStorage.getItem("lastEntered"));
+    const restaurant = getRestaurantsById(user.userId % 2);
+    if (restaurant.playersNum <= 1) {
+        document.getElementById("gift-div").classList.add("hidden");
+        return;
+    }
+    const friendSelector = document.getElementById("friend-selector");
+    // Loop through the array and create options
+    getUsersFromLocalStorage().forEach(curentUser => {
+        if (user.userId % 2 === curentUser.userId % 2 && user.username !== curentUser.username) {
+            const option = document.createElement("option");
+            option.value = curentUser.userId;
+            option.textContent = curentUser.username;
+            friendSelector.appendChild(option);
+        }
+    });
+    const giftBtn = document.getElementById("gift-btn");
+    giftBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        const amount = document.getElementById("amount-point");
+        const select = document.getElementById("friend-selector");
+        if(sendMoney(amount.value, select.value)){
+            alert("Teh gift sent");
+            amount.value="";
+            select.value="";
+        }
+
+    })
+
+}
+giftOption();
