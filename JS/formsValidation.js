@@ -73,3 +73,16 @@ const getUsersInTheSameRestaurant = (id) => {
     }
     return sameRestaurant;
 }
+
+const logout=()=>{
+    let users = getUsersFromLocalStorage();
+    let user = JSON.parse(localStorage.getItem("lastEntered"));
+    for (let i = 0; i < users.length; i++) {
+        if(users[i].username === user.username){
+            users[i].active = false;
+            saveUsersToLocalStorage(users);
+            localStorage.removeItem("lastEntered");
+            location.href='../html/homePage.html';
+        }
+    }
+}
