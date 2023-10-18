@@ -34,14 +34,14 @@ const validRegister = () => {
     addPlayer(userId % 2);
     localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
+    alert("User registered successfully");
     return true;
-    // alert("User registered successfully");
 }
 
 const registerBtn = document.getElementById("send-register-btn");
 
 registerBtn.addEventListener('click', function () {
-    if (validRegister) {
+    if (validRegister()) {
         location.href = "../html/startGame.html";
     }
 });
