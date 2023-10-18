@@ -88,6 +88,7 @@ const viledRegister = () => {
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
     const user=getUserByUsername(username);
+    localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
     location.href = "../html/login.html";
 
@@ -115,7 +116,7 @@ const viledLogin = () => {
         }
         return;
     }
-
+    localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
 
 

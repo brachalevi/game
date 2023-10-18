@@ -35,7 +35,6 @@ for (let i = 1; i < buttons.length; i++) {
         updateValueOnGame('user', lastEntered.userId, gameDetails);
         updateValueOnGame('restaurant', restaurantId, gameDetails);
         updateValueOnGame('time', seconds, gameDetails);
-        localStorage.removeItem('lastEntered');
         location.href = '../html/main.html'
     });
 }

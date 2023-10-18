@@ -3,7 +3,11 @@
  */
 
 const isGameOver = (timeLeft) => {
-    if (moneyEarned === 0) {
+    if (timeLeft === 0) {
+        return true;
+    }
+
+    else if (moneyEarned === 0) {
         for (let i = 0; i < stock.length; i++) {
             if (stock[i].amount !== 0) {
                 return false;
@@ -11,12 +15,6 @@ const isGameOver = (timeLeft) => {
         }
         return true;
     }
-    //! you don't need here the else if, use just if
-    else if (timeLeft === 0) {
-        console.log(true); //! remove
-        return true;
-    }
-    return false;
 }
 
 
