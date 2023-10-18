@@ -1,6 +1,8 @@
 // email with letters/numbers that ends with .com/.org/.net
 // in the format hilma345@somthing.com
-const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
+const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-z]/;
+//const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
+
 
 // Regular expression to validate passwords:
 // - Length of 8
@@ -18,15 +20,20 @@ const getUsersFromLocalStorage = () => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     return users;
 }
+
+// Function to add a user to local storage
 const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
+
+// Function to retrieve a user by their username
 const addUserToLocalStorage = (username, password, email) => {
+    let userId;
     if(getUsersFromLocalStorage().length === 0){
         userId = 1;
     }
     else{
-        let userId = getUsersFromLocalStorage().pop().userId+1;
+        userId = getUsersFromLocalStorage().pop().userId+1;
     }
     const user = {
         username: username,
@@ -40,6 +47,8 @@ const addUserToLocalStorage = (username, password, email) => {
     users.push(user);
     saveUsersToLocalStorage(users);
 }
+
+// Function for user registration
 const getUserByUsername = username => {
     let users = getUsersFromLocalStorage();
     if (users == []) {
@@ -53,6 +62,8 @@ const getUserByUsername = username => {
     /*the user not found*/
     return -1;
 }
+
+// Function for user login
 const viledRegister = () => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -85,7 +96,7 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
-    location.href = "../html/login.html";
+    location.href = '../html/login.html'
 
 }
 
@@ -111,7 +122,8 @@ const viledLogin = () => {
         }
         return;
     }
-    location.href = "../html/startGame.html";
+    alert("go to the start game");
+    location.href = '../html/startGame.html'
 }
 
 
