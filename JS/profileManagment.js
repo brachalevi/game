@@ -1,6 +1,6 @@
 if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
     location.href = '../html/homePage.html';
-}  
+} 
 
 //getting the current user
 const lastEnteredStr = localStorage.getItem('lastEntered');

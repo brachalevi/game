@@ -52,3 +52,4 @@ for (let i = 0; i < buttons.length; i++) {
         location.href = '../html/main.html'
     });
 }
+startGame(); 

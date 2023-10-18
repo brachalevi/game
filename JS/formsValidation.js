@@ -42,7 +42,8 @@ const addUserToLocalStorage = (username, password, email) => {
         email: email,
         points: 0,
         active: false,
-        userId: userId
+        userId: userId,
+        money: 0
     };
     const users = getUsersFromLocalStorage();
     users.push(user);
