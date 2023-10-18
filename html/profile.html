@@ -8,6 +8,8 @@
     <link rel="icon" type="image/x-icon" href="../media/prefabs/patty.png">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href="../CSS/basic.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/forms.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -31,7 +33,7 @@
         <h3 id="hi-name" class="div-heading"></h3>
         <ul id="info-list" class="profile-list"></ul>
     </div>
-    
+
     <div id="stats-div" class="profile-dives">
         <h3 class="div-heading">Your statistics</h3>
         <ul id="stats-list" class="profile-list"></ul>
@@ -39,13 +41,14 @@
 
     <div id="changePsw-div" class="profile-dives">
         <h3 class="div-heading">Change your password</h3>
-        <form>
+        <form id="changing-form">
             <input type="password" id="old-password" placeholder="old password"><br>
             <input type="password" id="confirm-old-password" placeholder="confirm old password"><br><br>
-            <lable id="passwordValidRules">Your password should contain numbers, at least one uppercase letter,<br> one
+            <lable class="passwordRules">Your password should contain numbers, at least one uppercase letter, one
                 lowercase letter and be 8 character long</lable><br>
-            <input type="password" id="new-password" placeholder="new password">
-            <input type="password" id="confirm-new-password" placeholder="confirm new password">
+            <input type="password" id="new-password" placeholder="new password"><br>
+            <input type="password" id="confirm-new-password" placeholder="confirm new password"><br>
+            <button class="buttons" id="change-password-btn">Change</button>
         </form>
     </div>
 

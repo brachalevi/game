@@ -1,6 +1,6 @@
 // email with letters/numbers that ends with .com/.org/.net
 // in the format hilma345@somthing.com
-const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
+const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-zA-Z]+[a-zA-Z]+/;
 
 // Regular expression to validate passwords:
 // - Length of 8
@@ -25,7 +25,7 @@ const saveUsersToLocalStorage = users => {
 let userId;
 const addUserToLocalStorage = (username, password, email) => {
     if (getUsersFromLocalStorage().length === 0) {
-        userId = 1; 
+        userId = 1;
     }
     else {
         userId = getUsersFromLocalStorage().pop().userId + 1;
@@ -59,10 +59,10 @@ const getUserByUsername = username => {
     return -1;
 }
 
-const getUsersInTheSameRestaurant=(id)=>{
-    const sameRestaurant=[];
-    const allUsers=getUsersFromLocalStorage();
-    for (let i=id; i<allUsers.length; i++){
+const getUsersInTheSameRestaurant = (id) => {
+    const sameRestaurant = [];
+    const allUsers = getUsersFromLocalStorage();
+    for (let i = id; i < allUsers.length; i++) {
         sameRestaurant.push(allUsers[i]);
     }
     return sameRestaurant;

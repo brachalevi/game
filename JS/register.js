@@ -40,8 +40,8 @@ const validRegister = () => {
 
 const registerBtn = document.getElementById("send-register-btn");
 
-registerBtn.addEventListener('click', function(){
-    if (validRegister){
+registerBtn.addEventListener('click', function () {
+    if (validRegister) {
         location.href = "../html/startGame.html";
     }
 });

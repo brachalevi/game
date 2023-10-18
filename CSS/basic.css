@@ -20,6 +20,11 @@ body {
     padding: 7px;
 }
 
+#change-password-btn{
+    font-size: medium;
+    width: 100px;
+}
+
 #try-again-btn{
     font-size: larger;
 }
@@ -115,6 +120,10 @@ body {
     border-radius: 10px;
     width: 800px;
     margin-left: 1%;
+}
+
+#changing-form{
+    margin-left: 4.5%;
 }
 
 .div-heading{

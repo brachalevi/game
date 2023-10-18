@@ -1,16 +1,16 @@
-let inputUsername=document.getElementById("login-username");
-let saveInputUsername='';
-inputUsername.addEventListener('input', function(){
-    inputUsername=document.getElementById("login-username");
-    saveInputUsername=inputUsername.value;
+let inputUsername = document.getElementById("login-username");
+let saveInputUsername = '';
+inputUsername.addEventListener('input', function () {
+    inputUsername = document.getElementById("login-username");
+    saveInputUsername = inputUsername.value;
     console.log(saveInputUsername);
 });
 
-let inputPassword=document.getElementById("login-password");
-let saveInputPassword='';
-inputPassword.addEventListener('input', function(){
-    inputPassword=document.getElementById("login-password");
-    saveInputPassword=inputPassword.value;
+let inputPassword = document.getElementById("login-password");
+let saveInputPassword = '';
+inputPassword.addEventListener('input', function () {
+    inputPassword = document.getElementById("login-password");
+    saveInputPassword = inputPassword.value;
     console.log(saveInputPassword);
 });
 
@@ -38,10 +38,10 @@ const validLogin = (username, password) => {
     return true;
 }
 
-const loginBtn=document.getElementById("send-login-btn");
+const loginBtn = document.getElementById("send-login-btn");
 
-loginBtn.addEventListener('click', function(){
-    if (validLogin(saveInputUsername, saveInputPassword)){
+loginBtn.addEventListener('click', function () {
+    if (validLogin(saveInputUsername, saveInputPassword)) {
         location.href = './startGame.html';
     }
 });
