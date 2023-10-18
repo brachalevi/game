@@ -1,15 +1,19 @@
-
-const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
 // email with letters/numbers that ends with .com/.org/.net
 // in the format hilma345@somthing.com
+const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
 
+// Regular expression to validate passwords:
+// - Length of 8
+// - Contains at least one uppercase letter, one lowercase letter, and one digit
 const regexPassword = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])^([A-Za-z0-9]{8})$/;
-// length of 8, contains at least one digit, one lowercase letter
-// and one uppercase letter
-let failedLoginAttempts = 1;
 
-const isValidPassword = password => regexPassword.test(password); //checks if password is valid
-const isValidEmail = email => regexEmail.test(email); //checks if email is valid
+// Function to check if a password is valid
+const isValidPassword = password => regexPassword.test(password); 
+
+// Function to check if an email is valid
+const isValidEmail = email => regexEmail.test(email);
+
+// Function to retrieve user data from local storage
 const getUsersFromLocalStorage = () => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     return users;
@@ -18,11 +22,11 @@ const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
 const addUserToLocalStorage = (username, password, email) => {
-    if(getUsersFromLocalStorage()==[]){
-        userId = true;
+    if(getUsersFromLocalStorage().length === 0){
+        userId = 1;
     }
     else{
-        let userId = !getUsersFromLocalStorage().pop().userId;
+        let userId = getUsersFromLocalStorage().pop().userId+1;
     }
     const user = {
         username: username,
@@ -81,6 +85,7 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
+    /*error-not take me to the paje*/
     location.href = "../html/login.html";
 
 }
@@ -107,6 +112,7 @@ const viledLogin = () => {
         }
         return;
     }
+    /*error-not take me to the paje*/
     location.href = "../html/startGame.html";
 }
 
