@@ -1,17 +1,19 @@
-
-const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
 // email with letters/numbers that ends with .com/.org/.net
 // in the format hilma345@somthing.com
+const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.(com|org|net)/;
 
+// Regular expression to validate passwords:
+// - Length of 8
+// - Contains at least one uppercase letter, one lowercase letter, and one digit
 const regexPassword = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])^([A-Za-z0-9]{8})$/;
-// length of 8, contains at least one digit, one lowercase letter
-// and one uppercase letter
-let failedLoginAttempts = 1;
 
-const isValidPassword = password => regexPassword.test(password); //checks if password is valid
-const isValidEmail = email => regexEmail.test(email); //checks if email is valid
+// Function to check if a password is valid
+const isValidPassword = password => regexPassword.test(password); 
 
+// Function to check if an email is valid
+const isValidEmail = email => regexEmail.test(email);
 
+// Function to retrieve user data from local storage
 const getUsersFromLocalStorage = () => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     return users;
@@ -20,12 +22,13 @@ const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
 const addUserToLocalStorage = (username, password, email) => {
-    if (getUsersFromLocalStorage() == []) {
-        userId = true;
+    if(getUsersFromLocalStorage().length === 0){
+        userId = 1; //! Where const/let and why you declere it again without use it inside the else 
     }
-    else {
-        let userId = !getUsersFromLocalStorage().pop().userId;
+    else{
+        let userId = getUsersFromLocalStorage().pop().userId+1;
     }
+    //! Do a declaration here, read about it, its really cool (;
     const user = {
         username: username,
         password: password,
@@ -48,7 +51,8 @@ const getUserByUsername = username => {
             return users[i];
         }
     }
-    /*the user not found*/
+    /*the user not found*/ 
+    //! Change it to false
     return -1;
 }
 const viledRegister = () => {
@@ -69,7 +73,7 @@ const viledRegister = () => {
     }
     if (!isValidPassword(password)) {
         /*chack the error*/
-        alert("error-ilegel pasword");
+        alert("error-ilegel pasword"); 
         return;
     }
     /*the pasword and the repet not the same*/
@@ -99,7 +103,7 @@ const viledLogin = () => {
     /*if the user is not found*/
     const user = getUserByUsername(username);
     if (user === -1) {
-        alert("The username is not exists in the system");
+        alert("The username is not exists in the system"); //! Pay attention to not give the user specific errors like those. This can be useful for hackers  
         return;
     }
     if (password !== user.password) {

@@ -48,6 +48,7 @@ const listOfItems = (order, place) => {
   //empty line in-between
   const empty = document.createElement('li');
   empty.textContent = 'empty line';
+    //! why don't you add a class for this
   empty.style.visibility = 'hidden';
   empty.style.fontSize = '8px';
   list.appendChild(empty);
