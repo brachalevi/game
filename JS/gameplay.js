@@ -150,7 +150,6 @@ const resetAmounts = () => {
 const startGame = () => {
     const newGame = getGameFromLocalStorage();
     const time = game.time || 90;
-    updateValueOnGame('time', time, game);
     startTimerAndGetOrders(time);
     resetPlating();
     resetMoney();
@@ -158,4 +157,9 @@ const startGame = () => {
     resetAmounts();
 }
 
-startGame(); //calling the function
+if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
+    alert("good");
+    location.href = '../html/homePage.html';
+} 
+else
+    startGame(); 

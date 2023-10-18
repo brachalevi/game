@@ -22,7 +22,7 @@ saveRestaurantsToLocalStorage(restaurantsArr);
 
 //get restaurants as an array
 const getRestaurantsFromLocalStorage = () => {
-    const restaurants = JSON.parse(localStorage.getItem('restaurants'));
+    const restaurants = JSON.parse(localStorage.getItem('restaurants'))||false;
     return restaurants;
 }
 

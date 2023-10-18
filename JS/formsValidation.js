@@ -10,7 +10,7 @@ const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-z]/;
 const regexPassword = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])^([A-Za-z0-9]{8})$/;
 
 // Function to check if a password is valid
-const isValidPassword = password => regexPassword.test(password); 
+const isValidPassword = password => regexPassword.test(password);
 
 // Function to check if an email is valid
 const isValidEmail = email => regexEmail.test(email);
@@ -29,19 +29,21 @@ const saveUsersToLocalStorage = users => {
 // Function to retrieve a user by their username
 const addUserToLocalStorage = (username, password, email) => {
     let userId;
-    if(getUsersFromLocalStorage().length === 0){
+    if (getUsersFromLocalStorage().length === 0) {
         userId = 1; //! Where const/let and why you declere it again without use it inside the else 
     }
-    else{
-        userId = getUsersFromLocalStorage().pop().userId+1;
+    else {
+        userId = getUsersFromLocalStorage().pop().userId;
     }
+
+    //updateValue(userId%2, playersNum, Math.ceil(userId/2));
     //! Do a declaration here, read about it, its really cool (;
     const user = {
         username: username,
         password: password,
         email: email,
         points: 0,
-        active: true,
+        active: false,
         userId: userId
     };
     const users = getUsersFromLocalStorage();
@@ -60,7 +62,7 @@ const getUserByUsername = username => {
             return users[i];
         }
     }
-    /*the user not found*/ 
+    /*the user not found*/
     //! Change it to false
     return -1;
 }
@@ -84,7 +86,7 @@ const viledRegister = () => {
     }
     if (!isValidPassword(password)) {
         /*chack the error*/
-        alert("error-ilegel pasword"); 
+        alert("error-ilegel pasword");
         return;
     }
     /*the pasword and the repet not the same*/
@@ -98,9 +100,6 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
-    const user=getUserByUsername(username);
-    localStorage.removeItem('lastEntered');
-    localStorage.setItem('lastEntered', JSON.stringify(user));
     location.href = '../html/login.html'
 
 }
@@ -116,30 +115,39 @@ const viledLogin = () => {
         return;
     }
     if (password !== user.password) {
-        failedLoginAttempts++;
+        /*failedLoginAttempts++;
         if (failedLoginAttempts >= 3) {
             alert("You have exceeded the maximum login attempts. Please try again in 5 seconds.");
             setTimeout(() => {
                 failedLoginAttempts = 0; // Reset the login attempts counter after the delay
             }, 5000); // 5000 milliseconds = 5 seconds
-        } else {
-            alert("Error: Wrong password");
-        }
+        } */
+        alert("Error: Wrong password");
         return;
     }
-    localStorage.removeItem('lastEntered');
-    localStorage.setItem('lastEntered', JSON.stringify(user));
-
-
-    location.href = '../html/startGame.html'
-}
-
-
-const findActiveUser = () => {
-    const users = getUsersFromLocalStorage();
+    let users = getUsersFromLocalStorage();
     for (let i = 0; i < users.length; i++) {
-        if (users[i].active) {
-            return users[i];
+        if (users[i].username === username) {
+            users[i].active = true;
+            saveUsersToLocalStorage(users);
         }
     }
+    localStorage.removeItem('lastEntered');
+    user.active=true;
+    localStorage.setItem('lastEntered', JSON.stringify(user));
+    location.href = '../html/homePage.html';
+}
+
+/*add log out*/
+const logout = () => {
+    let lastEntered = JSON.parse(localStorage.getItem("lastEntered"));
+    let users = getUsersFromLocalStorage();
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].username === lastEntered.username) {
+            users[i].active = false;
+        }
+    }
+    saveUsersToLocalStorage(users);
+    localStorage.removeItem("lastEntered");
+    location.href = '../html/homePage.html';
 }

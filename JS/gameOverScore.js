@@ -1,5 +1,11 @@
+if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
+    alert("good");
+    location.href = '../html/homePage.html';
+} 
+else
+    startGame(); 
 const currentGame = getGameFromLocalStorage();
-console.log(currentGame);
+
 
 const money = currentGame.money || 0;
 const moneyText = document.getElementById("money-score");
