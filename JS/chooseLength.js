@@ -1,5 +1,6 @@
 let restaurantId=0;
-const lastEntered=localStorage.getItem('lastEntered');
+const lastEnteredStr=localStorage.getItem('lastEntered');
+const lastEntered=JSON.parse(lastEnteredStr);
 
 if (lastEntered.userId) {
     switch (lastEntered.userId % 2) {
@@ -34,6 +35,7 @@ for (let i = 1; i < buttons.length; i++) {
         updateValueOnGame('user', lastEntered.userId, gameDetails);
         updateValueOnGame('restaurant', restaurantId, gameDetails);
         updateValueOnGame('time', seconds, gameDetails);
+        localStorage.removeItem('lastEntered');
         location.href = '../html/main.html'
     });
 }

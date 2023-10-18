@@ -87,11 +87,8 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
-    localStorage.setItem('lastEntered', getUserByUsername(username));
-    const game = getGameFromLocalStorage();
-    updateValueOnGame('user', user, game);
-    const restaurantId = user.userId % 2;
-    updateValueOnGame('restaurant', restaurantId, game);
+    const user=getUserByUsername(username);
+    localStorage.setItem('lastEntered', JSON.stringify(user));
     location.href = "../html/login.html";
 
 }
@@ -118,7 +115,8 @@ const viledLogin = () => {
         }
         return;
     }
-    localStorage.setItem('lastEntered', getUserByUsername(username));
+
+    localStorage.setItem('lastEntered', JSON.stringify(user));
 
 
     location.href = "../html/startGame.html";
