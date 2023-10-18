@@ -119,8 +119,9 @@ const viledLogin = () => {
     localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
 
-
-    location.href = "../html/startGame.html";
+    setTimeout(function(){
+        location.href = "../html/startGame.html";
+    }, 2000);
 }
 
 
