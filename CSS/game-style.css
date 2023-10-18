@@ -105,6 +105,9 @@
     width: 170px;
 }
 
+#name{
+    /* float: right; */
+}
 
 .order {
     border-radius: 10%;

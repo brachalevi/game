@@ -2,6 +2,9 @@ if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered
     location.href = '../html/homePage.html';
 } 
 
+const getName=document.getElementById('name');
+getName.textContent=(`${getRestaurantsById(lastEntered.userId % 2).name}`);
+
 /**
  * Game over
  */

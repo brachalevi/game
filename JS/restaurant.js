@@ -10,16 +10,17 @@ const restaurantsArr = [
         id: 0,
         playersNum: 0,
         score: 0,
+        name:'Big Bite Burgers'
     },
     {
         id: 1,
         playersNum: 0,
         score: 0,
+        name:'Grill & Chill Burgers'
     }
 ];
 
 saveRestaurantsToLocalStorage(restaurantsArr);
-
 }
 
 

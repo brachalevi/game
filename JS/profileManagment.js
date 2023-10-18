@@ -42,7 +42,7 @@ const createList = (list, arr) => {
 const infoList = document.getElementById('info-list');
 
 const infoArr = [
-    `You belong to restaurant ${(1 + lastEntered.userId % 2)}`,
+    `You belong to ${(getRestaurantsById(restaurant).name)}`,
     `Your restaurant has ${getRestaurantsById(restaurant).score} points in total`,
     `In the restaurant there are ${getRestaurantsById(restaurant).playersNum} players`,
     'empty',
@@ -73,7 +73,8 @@ const statsList = document.getElementById('stats-list');
 
 const statsArr = [
     `You are in the top ${topPlayers(allUsers)}% players`,
-    `You are in the top ${topPlayers(sameRestaurant)}% players from your restaurant`
+    `You are in the top ${topPlayers(sameRestaurant)}% players from your restaurant`,
+    'empty'
 ];
 
 const difference = getRestaurantsById(restaurant).score - getRestaurantsById(otherRestaurant).score;

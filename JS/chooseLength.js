@@ -28,7 +28,7 @@ if (lastEntered.userId) { //if there is a current user
 
 //writing the restaurant number
 const restaurantIdText = document.getElementById("restaurant-id");
-restaurantIdText.textContent += restaurantId;
+restaurantIdText.textContent = (getRestaurantsById(restaurantId).name);
 
 let seconds = 90; //initial value
 

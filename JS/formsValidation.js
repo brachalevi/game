@@ -87,19 +87,6 @@ const logout=()=>{
     }
 }
 
-// const getUserIndexById=(id)=>{
-//     const users=getUsersFromLocalStorage();
-//     if (users == []) {
-//         return -1;
-//     }
-//     for (let i=0; i<users.length; i++){
-//         if (users[i].userId===id){
-//             return i;
-//         }
-//     }
-//     return -1;
-// }
-
 //updating a value to a key on user with user id of id
 const updateValueOnUser = (id, key, value) => {  
     const users=getUsersFromLocalStorage();  

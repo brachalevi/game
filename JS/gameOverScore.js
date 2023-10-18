@@ -46,6 +46,11 @@ switch (restaurant) {
         break;
 }
 
+const yourName = document.getElementById("th-your-name");
+const otherName = document.getElementById("th-other-name");
+yourName.textContent = getRestaurantsById(restaurant).name;
+otherName.textContent = getRestaurantsById(otherRestaurant).name;
+
 const yourScore = document.getElementById("td-your-score");
 const otherScore = document.getElementById("td-other-score");
 yourScore.textContent = getRestaurantsById(restaurant).score + " points";
