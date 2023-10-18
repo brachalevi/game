@@ -149,7 +149,6 @@ const resetAmounts = () => {
 /* starting the game */
 
 const startGame = () => {
-    createGame();
     const newGame = getGameFromLocalStorage();
     const time = game.time || 90;
     updateValueOnGame('time', time, game);

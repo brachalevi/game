@@ -1,4 +1,5 @@
 const currentGame = getGameFromLocalStorage();
+console.log(currentGame);
 
 const money = currentGame.money || 0;
 const moneyText = document.getElementById("money-score");
@@ -59,3 +60,6 @@ if (difference > 0) {
 else {
     inLead.textContent = `Other restaurant is leading by ${Math.abs(difference)} points`;
 }
+
+localStorage.removeItem('game');
+console.log(currentGame);

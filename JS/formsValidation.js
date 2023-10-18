@@ -10,6 +10,8 @@ let failedLoginAttempts = 1;
 
 const isValidPassword = password => regexPassword.test(password); //checks if password is valid
 const isValidEmail = email => regexEmail.test(email); //checks if email is valid
+
+
 const getUsersFromLocalStorage = () => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     return users;
@@ -81,6 +83,7 @@ const viledRegister = () => {
     }
     addUserToLocalStorage(username, password, email);
     alert("User registered successfully");
+    localStorage.setItem('lastEntered', getUserByUsername(username));
     const game = getGameFromLocalStorage();
     updateValueOnGame('user', user, game);
     const restaurantId = user.userId % 2;
@@ -111,10 +114,9 @@ const viledLogin = () => {
         }
         return;
     }
-    const game = getGameFromLocalStorage();
-    updateValueOnGame('user', user, game);
-    const restaurantId = user.userId % 2;
-    updateValueOnGame('restaurant', restaurantId, game);
+    localStorage.setItem('lastEntered', getUserByUsername(username));
+
+
     location.href = "../html/startGame.html";
 }
 
