@@ -3,13 +3,13 @@ const currentGame = getGameFromLocalStorage();
 const money = currentGame.money || 0;
 const moneyText = document.getElementById("money-score");
 moneyText.textContent = `You earned $${money}`;
-
+//! Don't use let if you don't need to change the value
 let points = Math.floor(100 * Math.random() * ((money / 3) - (money / 4)) + 1) || 0;
 const pointsText = document.getElementById('points');
 pointsText.textContent += points;
 
 const gameFeedback = document.getElementById('game-feedback');
-
+//! try to avid else if, mabey do return or switch case
 if (money < 100) {
     gameFeedback.textContent = 'You really need to improve!';
 }
