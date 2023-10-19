@@ -167,7 +167,7 @@ const sendMoney = (amount, userToSendId) => {
     if (lastEntered.points < amount) {
         return false;
     }
-    updateValueOnUser(lastEntered.userId, 'points', -amount);
+    updateValueOnUser(lastEntered.userId, 'points', lastEntered.points-amount);
     const last = JSON.parse(localStorage.getItem("lastEntered"));
     last.points -= amount;
     localStorage.setItem("lastEntered", JSON.stringify(last));
@@ -205,13 +205,19 @@ const giftOption = () => {
         const amount = document.getElementById("amount-point");
         const select = document.getElementById("friend-selector");
         if (sendMoney(amount.value, select.value)) {
-            alert(`The gift of ${amount.value / 10} dollars was sent to ${select.textContent}`);
+            if (amount.value%10!==0){
+                alert('You can only send points in tens');
+                return;
+            }
+            sendToUser=getUsersFromLocalStorage()[(select.value)-1];
+            alert(`The gift of ${amount.value / 10} dollars was sent to ${sendToUser.username}`);
             amount.value = "";
             select.value = "";
             location.reload();
         }
         else {
             alert('You don\'t have enough points to send this gift');
+            return;
         }
     });
 }

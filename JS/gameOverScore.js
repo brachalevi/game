@@ -8,6 +8,8 @@ const restaurant = currentGame.restaurant;
 const user=currentGame.user;
 const time=currentGame.time;
 
+updateValueOnUser(user, 'money', 0);
+
 localStorage.removeItem('lastTime');
 
 const money = currentGame.money || 0;
@@ -35,7 +37,6 @@ else {
 
 addToScore(restaurant, points);
 addToUserPoints(user, points);
-updateValueOnUser(user, 'money', 0);
 const last= JSON.parse(localStorage.getItem("lastEntered"));
 last.points+=points;
 localStorage.setItem("lastEntered", JSON.stringify(last));
@@ -88,6 +89,7 @@ again.addEventListener('click', function () {
     const newGame = getGameFromLocalStorage();
     updateValueOnGame('time', time, newGame);
     updateValueOnGame('user', user, newGame);
+    updateValueOnGame('money', 0, newGame);
     updateValueOnGame('restaurant', restaurant, newGame);
     location.href = '../html/main.html';
 });
