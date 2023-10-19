@@ -19,6 +19,5 @@ if (!localStorage.getItem('restaurants')) {
             name: 'Grill & Chill Burgers'
         }
     ];
-    console.log(restaurantsArr)
     saveRestaurantsToLocalStorage(restaurantsArr);
 }

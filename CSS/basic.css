@@ -16,8 +16,8 @@ body {
     border-radius: 10px;
     text-align: center;
     font-size: large;
-    margin: 5px;
-    padding: 7px;
+    margin: 0.7vw;
+    padding: 0.8vw;
 }
 
 #change-password-btn{
@@ -119,20 +119,19 @@ body {
     border: 3px solid #4b76de;
     border-radius: 10px;
     width: 60vw; /* Change to responsive value */
-    margin-left: 1%;
+    margin-left: 0.5vw;
 }
 
-#changing-form{
-    margin-left: 4.5%;
+#changing-form, #gift-form{
+    margin-left: 3vw;
 }
 
 .div-heading{
-    padding-left: 3%;
+    padding-left: 2vw;
 }
 
 #profile-menu{
     list-style: none;
-    padding-right: 10%;
 }
 
 .profile-list{
