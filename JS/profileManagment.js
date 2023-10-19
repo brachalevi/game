@@ -151,7 +151,7 @@ const changePassword = () => {
     const username = lastEntered.username;
     localStorage.removeItem('lastEntered');
     const user = getUserByUsername(username);
-    localStorage.setItem('lastEntered', user);
+    localStorage.setItem('lastEntered', JSON.stringify(user));
     location.reload();
     return true;
 }
