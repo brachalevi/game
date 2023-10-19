@@ -56,7 +56,7 @@ createList(infoList, infoArr);
 
 /* stats div */
 const allUsers = getUsersFromLocalStorage();
-const sameRestaurant = getUsersInTheSameRestaurant(lastEntered.userId % 2-1);
+const sameRestaurant = getUsersInTheSameRestaurant(lastEntered.userId % 2);
 
 //a function that gets the current player's rank out of an array of players
 const topPlayers = players => {
