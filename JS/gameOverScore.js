@@ -18,7 +18,7 @@ updateValueOnUser(user, 'money', 0);
 
 const points = Math.floor(100 * Math.random() * ((money / 3) - (money / 4)) + 1) || 0;
 const pointsText = document.getElementById('points');
-pointsText.textContent += points+ "points";
+pointsText.textContent += points+ " points";
 
 const gameFeedback = document.getElementById('game-feedback');
 //! try to avid else if, mabey do return or switch case
