@@ -15,23 +15,30 @@ body {
     font-weight: bold;
     border-radius: 10px;
     text-align: center;
-    font-size: large;
+    font-size: 1.1rem;
     margin: 0.7vw;
     padding: 0.8vw;
 }
 
-#change-password-btn{
-    font-size: medium;
+#change-password-btn,
+#gift-btn {
+    font-size: 1rem;
     width: min(15vw, 100px);
 }
 
-#try-again-btn{
-    font-size: larger;
+#try-again-div {
+    margin-left: auto;
+    margin-bottom: auto;
+    text-align: center;
 }
 
-#profile{
+#try-again-btn {
+    font-size: 1.5rem;
+}
+
+#profile {
     position: absolute;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     bottom: 75vh;
 }
@@ -42,8 +49,8 @@ body {
 
 #round-logo {
     margin-top: 8vh;
-    height: 25vw;
-    width: 25vw;
+    height: 32vw;
+    width: 32vw;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -61,7 +68,7 @@ body {
 }
 
 .logo-line {
-    height: 7vh;
+    height: 8vh;
 }
 
 .logout-btn {
@@ -83,11 +90,11 @@ body {
     right: 15vw;
 }
 
-.your{
+.your {
     border-right: 2px solid black;
 }
 
-#in-lead{
+#in-lead {
     border-top: 2px solid black;
 }
 
@@ -99,7 +106,7 @@ body {
     display: none;
 }
 
-#sticky-menu{
+#sticky-menu {
     color: #4b76de;
     border: 3px solid #4b76de;
     background-color: #abc3ff;
@@ -107,50 +114,53 @@ body {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     position: sticky;
-    top:20vh;
-    left:100%;
-    right:0%;
+    top: 20vh;
+    left: 100%;
+    right: 0%;
     width: 20vw;
-    /* display:inline-block; */
 }
 
-.profile-dives{
-    margin-top: 10vh; /* Change to responsive value */
+.profile-dives {
+    margin-top: 10vh;
+    /* Change to responsive value */
     border: 3px solid #4b76de;
     border-radius: 10px;
-    width: 60vw; /* Change to responsive value */
+    width: 60vw;
+    /* Change to responsive value */
     margin-left: 0.5vw;
 }
 
-#changing-form, #gift-form{
+#changing-form,
+#gift-form {
     margin-left: 3vw;
 }
 
-.div-heading{
+.div-heading {
     padding-left: 2vw;
 }
 
-#profile-menu{
+#profile-menu {
     list-style: none;
 }
 
-.profile-list{
-    list-style:none;
+.profile-list {
+    list-style: none;
 }
 
-table{
+table {
     margin-left: auto;
     margin-right: auto;
 }
 
-.buttons:hover{
-    border: 0.4px solid #6284d5;
+.buttons:hover {
+    border: 3.5px solid #6284d5;
 }
 
 th {
     padding-right: 2vw;
 }
 
-th, td{
+th,
+td {
     padding-left: 1vw;
 }
