@@ -105,8 +105,10 @@
     width: 170px;
 }
 
-#name{
-    /* float: right; */
+
+th {
+    padding-right: 5vh;
+    /* to fix */
 }
 
 .order {

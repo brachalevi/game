@@ -165,3 +165,23 @@ const startGame = () => {
 }
 
 startGame();
+
+
+/**
+ * Game animations
+ */
+
+const orderMove=(id)=>{
+  var order = document.getElementById(id);   
+  var pos = 0;
+  clearInterval(animation);
+  const animation = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(animation);
+    } else {
+      pos++; 
+      elem.style.right = pos + 'px'; 
+    }
+  }
+}

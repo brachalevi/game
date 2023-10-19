@@ -43,11 +43,11 @@ const infoList = document.getElementById('info-list');
 
 const infoArr = [
     `You currently have ${lastEntered.points} points`,
-    `The email connected to your account is ${lastEntered.email}`,    
+    `The email connected to your account is ${lastEntered.email}`,
     'empty',
     `You belong to ${(getRestaurantsById(restaurant).name)}`,
     `Your restaurant has ${getRestaurantsById(restaurant).score} points in total`,
-    `In the restaurant there are ${getRestaurantsById(restaurant).playersNum} players`
+    `In the restaurant there are ${getRestaurantsById(restaurant).playersNum} players, including you`
 ];
 
 createList(infoList, infoArr);
@@ -64,9 +64,9 @@ const topPlayers = players => {
         return 0;
     }
     players.sort((a, b) => b.points - a.points);
-    const currentRank = players.findIndex(player => player.points <= lastEntered.points) +1;
+    const currentRank = players.findIndex(player => player.points <= lastEntered.points) + 1;
     const rank = (currentRank / players.length) * 100;
-    return rank;
+    return rank.toFixed(2);
 }
 
 const statsList = document.getElementById('stats-list');
@@ -129,7 +129,6 @@ for (let i = 0; i < arrOfInputs.length; i++) {
     const current = arrOfInputs[i];
     (current.value).addEventListener('input', function () {
         current.save = (current.value).value;
-        console.log(current.save);
     });
 }
 
@@ -170,26 +169,33 @@ const sendMoney = (amount, userToSendId) => {
     }
     updateValueOnUser(lastEntered.userId, 'points', -amount);
     const last = JSON.parse(localStorage.getItem("lastEntered"));
-    last.points -=amount;
-    localStorage.setItem("lastEntered",JSON.stringify(last));
+    last.points -= amount;
+    localStorage.setItem("lastEntered", JSON.stringify(last));
 
-    updateValueOnUser(userToSendId, 'money', amount / 10);
+    const userToSend = getUsersFromLocalStorage()[userToSendId - 1];
+    updateValueOnUser(userToSendId, 'money', (amount / 10 + userToSend.money));
     return true;
 }
+
 const giftOption = () => {
     const user = JSON.parse(localStorage.getItem("lastEntered"));
     const restaurant = getRestaurantsById(user.userId % 2);
-    if (restaurant.playersNum <= 1) {
+    if (restaurant.playersNum <= 1 || user.points <= 0) {
         document.getElementById("gift-div").classList.add("hidden");
+        document.getElementById("gift-li").classList.add("hidden");
         return;
+    }
+    else{
+        document.getElementById("gift-div").classList.remove("hidden");
+        document.getElementById("gift-li").classList.remove("hidden");
     }
     const friendSelector = document.getElementById("friend-selector");
     // Loop through the array and create options
-    getUsersFromLocalStorage().forEach(curentUser => {
-        if (user.userId % 2 === curentUser.userId % 2 && user.username !== curentUser.username) {
+    getUsersInTheSameRestaurant(user.userId % 2 - 1).forEach(currentUser => {
+        if (user.username !== currentUser.username) {
             const option = document.createElement("option");
-            option.value = curentUser.userId;
-            option.textContent = curentUser.username;
+            option.value = currentUser.userId;
+            option.textContent = currentUser.username;
             friendSelector.appendChild(option);
         }
     });
@@ -198,13 +204,16 @@ const giftOption = () => {
         event.preventDefault();
         const amount = document.getElementById("amount-point");
         const select = document.getElementById("friend-selector");
-        if(sendMoney(amount.value, select.value)){
-            alert("Teh gift sent");
-            amount.value="";
-            select.value="";
+        if (sendMoney(amount.value, select.value)) {
+            alert(`The gift of ${amount.value / 10} dollars was sent to ${select.textContent}`);
+            amount.value = "";
+            select.value = "";
+            location.reload();
         }
-
-    })
-
+        else {
+            alert('You don\'t have enough points to send this gift');
+        }
+    });
 }
+
 giftOption();

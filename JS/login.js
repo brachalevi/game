@@ -3,7 +3,6 @@ let saveInputUsername = '';
 inputUsername.addEventListener('input', function () {
     inputUsername = document.getElementById("login-username");
     saveInputUsername = inputUsername.value;
-    console.log(saveInputUsername);
 });
 
 let inputPassword = document.getElementById("login-password");
@@ -11,7 +10,6 @@ let saveInputPassword = '';
 inputPassword.addEventListener('input', function () {
     inputPassword = document.getElementById("login-password");
     saveInputPassword = inputPassword.value;
-    console.log(saveInputPassword);
 });
 
 const validLogin = (username, password) => {

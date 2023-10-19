@@ -23,7 +23,7 @@
             <li><a href="#info-div">Info</a></li>
             <li><a href="#stats-div">Statistics</a></li>
             <li><a href="#changePsw-div">Change password</a></li>
-            <li><a href="#gift-div">Send a gift</a></li>
+            <li id="gift-li"><a href="#gift-div">Send a gift</a></li>
         </ul>
     </div>
 
@@ -54,8 +54,8 @@
     <div id="gift-div" class="profile-dives">
         <h3 class="div-heading">Change your password</h3>
         <form id="changing-form">
-            <label>Amount of coins for gift:</label><br>
-            <input type="number" min="10" id="amount-point"><br>
+            <label>Amount of points for gift (10 points = 1 dollar)</label><br>
+            <input type="number" min="10" step="10" id="amount-point"><br>
             <label>Choose a friend to receive the gift</label><br>
             <select name="friend-selector" id="friend-selector"></select><br>
             <button class="buttons" id="gift-btn">Send</button>
