@@ -196,7 +196,7 @@ const giftOption = () => {
     }
     const friendSelector = document.getElementById("friend-selector");
     // Loop through the array and create options
-    getUsersInTheSameRestaurant(user.userId % 2 - 1).forEach(currentUser => {
+    getUsersInTheSameRestaurant(user.userId % 2).forEach(currentUser => {
         if (user.username !== currentUser.username) {
             const option = document.createElement("option");
             option.value = currentUser.userId;
