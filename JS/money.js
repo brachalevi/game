@@ -1,5 +1,10 @@
 const lastEntered = JSON.parse(localStorage.getItem("lastEntered"));
-let moneyEarned = lastEntered.money || 0;//in the start of the game
+
+let moneyEarned = 0;
+
+if (lastEntered.money>0){
+    moneyEarned = lastEntered.money;
+}
 const moneyDisplay = document.getElementById('money');
 const game = getGameFromLocalStorage();
 

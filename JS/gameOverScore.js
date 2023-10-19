@@ -8,17 +8,17 @@ const restaurant = currentGame.restaurant;
 const user=currentGame.user;
 const time=currentGame.time;
 
-updateValueOnUser(user, 'money', 0);
-
 localStorage.removeItem('lastTime');
 
 const money = currentGame.money || 0;
 const moneyText = document.getElementById("money-score");
 moneyText.textContent = `You earned $${money}`;
 
+updateValueOnUser(user, 'money', 0);
+
 const points = Math.floor(100 * Math.random() * ((money / 3) - (money / 4)) + 1) || 0;
 const pointsText = document.getElementById('points');
-pointsText.textContent += points;
+pointsText.textContent += points+ "points";
 
 const gameFeedback = document.getElementById('game-feedback');
 //! try to avid else if, mabey do return or switch case
@@ -87,6 +87,11 @@ again.addEventListener('click', function () {
     localStorage.removeItem('game');
     createGame();
     const newGame = getGameFromLocalStorage();
+    updateValueOnUser(user, 'money', 0);
+
+    const updatedUser=getUsersFromLocalStorage()[user-1];
+    localStorage.setItem('lastEntered', JSON.stringify(updatedUser));
+
     updateValueOnGame('time', time, newGame);
     updateValueOnGame('user', user, newGame);
     updateValueOnGame('money', 0, newGame);
