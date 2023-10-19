@@ -42,12 +42,12 @@ const createList = (list, arr) => {
 const infoList = document.getElementById('info-list');
 
 const infoArr = [
+    `You currently have ${lastEntered.points} points`,
+    `The email connected to your account is ${lastEntered.email}`,    
+    'empty',
     `You belong to ${(getRestaurantsById(restaurant).name)}`,
     `Your restaurant has ${getRestaurantsById(restaurant).score} points in total`,
-    `In the restaurant there are ${getRestaurantsById(restaurant).playersNum} players`,
-    'empty',
-    `You currently have ${lastEntered.points} points`,
-    `The email connected to your account is ${lastEntered.email}`
+    `In the restaurant there are ${getRestaurantsById(restaurant).playersNum} players`
 ];
 
 createList(infoList, infoArr);
