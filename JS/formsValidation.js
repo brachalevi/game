@@ -1,8 +1,8 @@
-// email with letters/numbers that ends with .com/.org/.net
-// in the format hilma345@somthing.com
+// Regular expression to validate email
+// in the format hilma345@somthing.something
 const regexEmail = /[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-z]+[a-z]+/;
 
-// Regular expression to validate passwords:
+// Regular expression to validate passwords
 // - Length of 8
 // - Contains at least one uppercase letter, one lowercase letter, and one digit
 const regexPassword = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])^([A-Za-z0-9]{8})$/;
@@ -19,22 +19,24 @@ const getUsersFromLocalStorage = () => {
     return users;
 }
 
+// Function to save the users to local storage
 const saveUsersToLocalStorage = users => {
     localStorage.setItem('users', JSON.stringify(users));
 }
 
 let userId;
+
+//adding a new user to users array in local storage
 const addUserToLocalStorage = (username, password, email) => {
     let userId;
-    if (getUsersFromLocalStorage().length === 0) {
-        userId = 1; //! Where const/let and why you declere it again without use it inside the else 
+    if (getUsersFromLocalStorage().length === 0) { //no users yet
+        userId = 1; //the first user
     }
     else {
-        userId = getUsersFromLocalStorage().pop().userId + 1;
+        userId = getUsersFromLocalStorage().pop().userId + 1; //the last user id +1
     }
 
-    //updateValue(userId%2, playersNum, Math.ceil(userId/2));
-    //! Do a declaration here, read about it, its really cool (;
+    //building a new user object
     const user = {
         username: username,
         password: password,
@@ -44,11 +46,13 @@ const addUserToLocalStorage = (username, password, email) => {
         userId: userId,
         money: 0
     };
-    const users = getUsersFromLocalStorage();
-    users.push(user);
-    saveUsersToLocalStorage(users);
+
+    const users = getUsersFromLocalStorage(); //the array of all users in local storage
+    users.push(user); //add new user to the array
+    saveUsersToLocalStorage(users); //save to local storage
 }
 
+//getting the user object by his username
 const getUserByUsername = username => {
     let users = getUsersFromLocalStorage();
     if (users == []) {
@@ -59,9 +63,7 @@ const getUserByUsername = username => {
             return users[i];
         }
     }
-    /*the user not found*/
-    /*the user not found*/
-    //! Change it to false
+    //the user is not found
     return -1;
 }
 
@@ -90,31 +92,31 @@ const logout = () => {
 //updating a value to a key on user with user id of id
 const updateValueOnUser = (id, key, value) => {
     const users = getUsersFromLocalStorage();
-    if (id < 1 || id > users.length) {
+    if (id < 1 || id > users.length) { //not a valid id
         return;
     }
-    const user = users[id - 1];
+    const user = users[id - 1]; //get the user object from the users array
     for (let property in user) {
-        if (user.hasOwnProperty(property) && property === key) {
-            user[property] = value;
+        if (user.hasOwnProperty(property) && property === key) { //find key property
+            user[property] = value; //change its value
         }
     }
-    users[id - 1] = user;
-    saveUsersToLocalStorage(users);
+    users[id - 1] = user; //update user
+    saveUsersToLocalStorage(users); //save to local storage
 }
 
 //adding an amount to an user's score
 const addToUserPoints = (id, amount) => {
     const users = getUsersFromLocalStorage();
-    if (id < 1 || id > users.length) {
+    if (id < 1 || id > users.length) { //not a valid id
         return;
     }
-    const user = users[id - 1];
+    const user = users[id - 1]; //get the user object from the users array
     for (let property in user) {
-        if (user.hasOwnProperty(property) && property === 'points') {
-            user[property] += amount;
+        if (user.hasOwnProperty(property) && property === 'points') { //find 'points' key
+            user[property] += amount; //add to the previous amount
         }
     }
-    users[id - 1] = user;
-    saveUsersToLocalStorage(users);
+    users[id - 1] = user; //update in the array
+    saveUsersToLocalStorage(users); //save to local storage
 }
