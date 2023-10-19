@@ -1,5 +1,9 @@
 if (localStorage.getItem('lastEntered') === null || localStorage.getItem('lastEntered').active === false) {
     location.href = '../html/homePage.html';
+} 
+const gift = JSON.parse(localStorage.getItem('lastEntered')).money;
+if (gift > 0) {
+    alert("Congratulations on receiving $" + gift + " from a friend");
 }
 
 let restaurantId = 0; //initial value

@@ -1,9 +1,10 @@
-if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
+if (localStorage.getItem('lastEntered') === null || localStorage.getItem('lastEntered').active === false) {
     location.href = '../html/homePage.html';
-} 
+}
 
-const getName=document.getElementById('name');
-getName.textContent=(`${getRestaurantsById(lastEntered.userId % 2).name}`);
+
+const getName = document.getElementById('name');
+getName.textContent = (`${getRestaurantsById(lastEntered.userId % 2).name}`);
 
 /**
  * Game over
@@ -125,10 +126,10 @@ const resetPlating = () => {
     }
 
     //reset variables
-    resetPlatingVariables();  
+    resetPlatingVariables();
 
     //hidding the buttons
-    hidingBtns(); 
+    hidingBtns();
 
     //adding click events to the unvisable buttons
     servebtn.addEventListener('click', serveClicked);
@@ -171,17 +172,17 @@ startGame();
  * Game animations
  */
 
-const orderMove=(id)=>{
-  var order = document.getElementById(id);   
-  var pos = 0;
-  clearInterval(animation);
-  const animation = setInterval(frame, 10);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(animation);
-    } else {
-      pos++; 
-      elem.style.right = pos + 'px'; 
+const orderMove = (id) => {
+    var order = document.getElementById(id);
+    var pos = 0;
+    clearInterval(animation);
+    const animation = setInterval(frame, 10);
+    function frame() {
+        if (pos == 350) {
+            clearInterval(animation);
+        } else {
+            pos++;
+            elem.style.right = pos + 'px';
+        }
     }
-  }
 }
