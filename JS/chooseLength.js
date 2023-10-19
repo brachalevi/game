@@ -1,12 +1,12 @@
-if(localStorage.getItem('lastEntered')===null||localStorage.getItem('lastEntered').active === false){
+if (localStorage.getItem('lastEntered') === null || localStorage.getItem('lastEntered').active === false) {
     location.href = '../html/homePage.html';
-} 
+}
 
-let restaurantId=0; //initial value
+let restaurantId = 0; //initial value
 
 //getting the current user
-const lastEnteredStr=localStorage.getItem('lastEntered');
-const lastEntered=JSON.parse(lastEnteredStr);
+const lastEnteredStr = localStorage.getItem('lastEntered');
+const lastEntered = JSON.parse(lastEnteredStr);
 
 if (lastEntered.userId) { //if there is a current user
     switch (lastEntered.userId % 2) {
@@ -24,7 +24,7 @@ if (lastEntered.userId) { //if there is a current user
 }
 
 //check if there is game
- localStorage.removeItem('game');
+localStorage.removeItem('game');
 
 //writing the restaurant number
 const restaurantIdText = document.getElementById("restaurant-id");
