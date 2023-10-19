@@ -146,3 +146,11 @@ table{
 .buttons:hover{
     border: 0.4px solid #6284d5;
 }
+
+th {
+    padding-right: 2vw;
+}
+
+th, td{
+    padding-left: 1vw;
+}

@@ -18,6 +18,7 @@
 #orders {
     grid-area: orders;
     margin-bottom: 2vh;
+    margin-top: 0.5vh;
 }
 
 #timer {
@@ -79,41 +80,35 @@
 }
 
 #tomato {
-    height: 20px;
+    height: 3vh;
 }
 
 #onion {
-    height: 20px;
+    height: 3vh;
 }
 
 #patty {
-    height: 60px;
+    height: 10vh;
 }
 
 #lettuce,
 #bottom-bun {
-    height: 40px;
+    height: 6vh;
 }
 
 #top-bun {
-    height: 80px;
+    height: 12vh;
 }
 
 .ingredient {
-    width: 170px;
-}
-
-
-th {
-    padding-right: 5vh;
-    /* to fix */
+    width: 14vw;
 }
 
 .order {
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: rgb(224, 235, 255);
     border: 3px solid black;
-    height: 200px;
+    height: 33vh;
     width: 15%;
 }
 
@@ -125,7 +120,6 @@ th {
 
 #ingredients {
     grid-area: ingredients;
-    /* background-image :url('../media/prefabs/table.png'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -188,7 +182,7 @@ th {
     font-weight: bold;
     text-align: center;
     display: block;
-    margin-top: 1px;
+    margin-top: 0.5vh;
 }
 
 .order-details {
@@ -199,9 +193,9 @@ th {
 #feedback-text {
     display: block;
     border: 3px dashed black;
-    border-radius: 10%;
-    margin: 15px 5px;
-    padding: 10px;
+    border-radius: 10px;
+    margin: 1.5vh 0.5vw;
+    padding: 1.5vh;
     background-color: rgb(224, 235, 255);
 }
 
@@ -217,19 +211,20 @@ th {
     border-radius: 50%;
     border: 2px solid black;
     text-align: center;
-    padding: 10px;
-    height: 15px;
-    width: 15px;
+    padding: 1.5vh;
+    height: 3vh;
+    width: 3vh;
     display: block;
-    bottom: 30px;
-    left: 80px;
+    bottom: 6vh;
+    left: 6.5vw;
 }
 
 .status {
     background-color: rgb(224, 235, 255);
     border-radius: 10px;
     border: 2px solid black;
-    padding: 10px;
+    padding: 1vh;
     text-align: center;
-    margin: 5px;
+    margin-bottom: 0vh;
+    margin: 0.5vw;
 }
