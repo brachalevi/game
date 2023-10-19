@@ -11,21 +11,21 @@ const validRegister = () => {
     }
     /*if the user found*/
     if (getUserByUsername(username) !== -1) {
-        alert("The username already exists in the system");
+        alert("Username is taken, please choose another one");
         return false;
     }
     if (!isValidPassword(password)) {
         /*chack the error*/
-        alert("error-ilegel pasword");
+        alert("Password is not valid");
         return false;
     }
     /*the pasword and the repet not the same*/
     if (password !== repeatePassword) {
-        alert("error-The password and the repeat password isn't the same");
+        alert("Please confirm your password");
         return false;
     }
     if (!isValidEmail(email)) {
-        alert("error-ilegal email");
+        alert("Email is not valid");
         return false;
     }
     addUserToLocalStorage(username, password, email);
@@ -34,7 +34,7 @@ const validRegister = () => {
     addPlayer(userId % 2);
     localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
-    alert("User registered successfully");
+    alert("User has successfullyregistered ");
     return true;
 }
 

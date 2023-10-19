@@ -16,15 +16,15 @@ const validLogin = (username, password) => {
     /*if the user is not found*/
     const user = getUserByUsername(username);
     if (user === -1) {
-        alert("The username is not exists in the system"); //! Pay attention to not give the user specific errors like those. This can be useful for hackers  
+        alert("User does not exist"); //! Pay attention to not give the user specific errors like those. This can be useful for hackers  
         return false;
     }
     if (password !== user.password) {
-        alert("Error: Wrong password");
+        alert("Wrong password");
         return false;
     }
     /*add change to users*/
-    user.active = true;
+    updateValueOnUser(user, 'active', true);
     localStorage.removeItem('lastEntered');
     localStorage.setItem('lastEntered', JSON.stringify(user));
     return true;

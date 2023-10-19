@@ -2,8 +2,13 @@ if (localStorage.getItem('lastEntered') === null || localStorage.getItem('lastEn
     location.href = '../html/homePage.html';
 } 
 const gift = JSON.parse(localStorage.getItem('lastEntered')).money;
+const alerted=localStorage.getItem('alerted') || '';
+
 if (gift > 0) {
-    alert("Congratulations on receiving $" + gift + " from a friend");
+    if (alerted!='yes'){
+        alert("Congratulations on receiving $" + gift + " from a friend");
+    }
+    localStorage.setItem('alerted', 'yes');
 }
 
 let restaurantId = 0; //initial value

@@ -158,7 +158,12 @@ const changePassword = () => {
 
 changePasswordBtn.addEventListener('click', function (event) {
     event.preventDefault();
-    changePassword();
+    if (changePassword()){
+        alert('Your password has been successfully changed');
+    }
+    else{
+        alert('Please try again');
+    }
 });
 
 /* send gift div */
@@ -204,11 +209,11 @@ const giftOption = () => {
         event.preventDefault();
         const amount = document.getElementById("amount-point");
         const select = document.getElementById("friend-selector");
+        if (amount.value%10!==0){
+            alert('You can only send points in tens');
+            return;
+        }
         if (sendMoney(amount.value, select.value)) {
-            if (amount.value%10!==0){
-                alert('You can only send points in tens');
-                return;
-            }
             sendToUser=getUsersFromLocalStorage()[(select.value)-1];
             alert(`The gift of ${amount.value / 10} dollars was sent to ${sendToUser.username}`);
             amount.value = "";
