@@ -56,7 +56,7 @@ createList(infoList, infoArr);
 
 /* stats div */
 const allUsers = getUsersFromLocalStorage();
-const sameRestaurant = getUsersInTheSameRestaurant(lastEntered.userId % 2);
+const sameRestaurant = getUsersInTheSameRestaurant(lastEntered.userId % 2-1);
 
 //a function that gets the current player's rank out of an array of players
 const topPlayers = players => {
@@ -196,7 +196,7 @@ const giftOption = () => {
     }
     const friendSelector = document.getElementById("friend-selector");
     // Loop through the array and create options
-    getUsersInTheSameRestaurant(user.userId % 2 - 1).forEach(currentUser => {
+    sameRestaurant.forEach(currentUser => {
         if (user.username !== currentUser.username) {
             const option = document.createElement("option");
             option.value = currentUser.userId;
