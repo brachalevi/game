@@ -70,7 +70,7 @@ const getUserByUsername = username => {
 const getUsersInTheSameRestaurant = (id) => {
     const sameRestaurant = [];
     const allUsers = getUsersFromLocalStorage();
-    for (let i = (id % 2); i < allUsers.length; i += 2) {
+    for (let i = (id % 2-1); i < allUsers.length; i += 2) {
         sameRestaurant.push(allUsers[i]);
     }
     return sameRestaurant;

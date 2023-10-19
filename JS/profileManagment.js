@@ -65,7 +65,7 @@ const topPlayers = players => {
     }
     players.sort((a, b) => b.points - a.points);
     const currentRank = players.findIndex(player => player.points <= lastEntered.points) + 1;
-    const rank = (currentRank / players.length) * 100;
+    const rank = (currentRank / (players.length+1)) * 100;
     return rank.toFixed(2);
 }
 
